@@ -1,0 +1,12 @@
+{
+  "frontend/src/App.tsx": "Main application router configuration with all routes for the nursery management system, removed InstallPrompt from root component.",
+  "frontend/src/lib/reportUtils.ts": "Utility functions for generating month/year options and filtering data by date ranges with proper TypeScript interfaces.",
+  "frontend/src/pages/Settings.tsx": "Settings page with business information form and data backup functionality integrated directly without separate component.",
+  "frontend/src/components/pwa/InstallPrompt.tsx": "PWA install prompt component that detects installability and shows custom banner for app installation.",
+  "frontend/src/registerServiceWorker.ts": "Service worker registration utility for enabling PWA offline capabilities.",
+  "frontend/src/main.tsx": "Application entry point with service worker registration after React app mounts.",
+  "frontend/src/index.css": "Global styles with OKLCH color system including custom nursery theme colors (green, brown, yellow).",
+  "frontend/public/service-worker.js": "Service worker implementing cache-first strategy for offline support of app shell and assets.",
+  "frontend/public/manifest.json": "PWA manifest configuration with app metadata, theme colors, and icon definitions.",
+  "frontend/index.html": "HTML entry point with PWA meta tags and manifest link."
+}

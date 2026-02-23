@@ -1,0 +1,292 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-23T02:20:02.012Z",
+  "summary": "The diff shows a substantial implementation of the Sharath Nursery Farm PWA with backend data models, frontend routing, layout components, and multiple inventory management screens. However, many requirements are only partially implemented with placeholder components, and several critical features are missing entirely.",
+  "missing_requirements": [
+    {
+      "id": "REQ-5",
+      "requirement": "Automatic stock deduction from inventory for all product types after sale creation",
+      "reason": "Backend main.mo is truncated and does not show the implementation of the billing system or stock deduction logic. Frontend billing components are placeholders with no actual functionality.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/billing/PaymentSection.tsx",
+        "frontend/src/components/billing/CartTable.tsx"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Auto-deduct from inventory stock when recording dead plants",
+      "reason": "DeadPlantForm is a placeholder component with no actual implementation of stock deduction logic.",
+      "evidence": [
+        "frontend/src/components/deadplants/DeadPlantForm.tsx"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "requirement": "Calculate monthly expense summaries",
+      "reason": "MonthlySummary component shows hardcoded '₹0' with no actual calculation logic.",
+      "evidence": [
+        "frontend/src/components/expenses/MonthlySummary.tsx"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "requirement": "Automatic customer record creation/update when sales include customer details",
+      "reason": "No evidence of customer auto-creation logic in the billing or sales components. Backend implementation is truncated.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/components/billing/PaymentSection.tsx"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Implement backend monthly sales report calculation with all specified metrics",
+      "reason": "Backend main.mo is truncated and does not show monthly report calculation implementation.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "requirement": "Implement backend yearly sales report calculation",
+      "reason": "Backend implementation is truncated; no evidence of yearly report calculation methods.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "requirement": "Implement backend ROI calculation",
+      "reason": "Backend implementation is truncated; no evidence of ROI calculation methods.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "requirement": "Implement backend CAGR calculation",
+      "reason": "Backend implementation is truncated; no evidence of CAGR calculation methods.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "requirement": "Implement backend dead plant loss analytics",
+      "reason": "Backend implementation is truncated; no evidence of analytics methods.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "requirement": "Implement backend business settings management",
+      "reason": "Backend implementation is truncated; no evidence of settings management methods.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "requirement": "Create billing/sales screen with all specified features including searchable inventory selector, cart, balance calculation, and conditional discount/due buttons",
+      "reason": "Billing components are placeholder implementations with no actual functionality for cart management, balance calculation, or conditional button display.",
+      "evidence": [
+        "frontend/src/components/billing/CartTable.tsx",
+        "frontend/src/components/billing/InventorySearch.tsx",
+        "frontend/src/components/billing/PaymentSection.tsx"
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "requirement": "After bill generation, display action buttons for Print, WhatsApp, and Download PDF with conditional WhatsApp visibility and automatic stock deduction",
+      "reason": "BillSuccessModal shows only Print and Download buttons with no WhatsApp button or conditional logic. No stock deduction implementation visible.",
+      "evidence": [
+        "frontend/src/components/billing/BillSuccessModal.tsx"
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "requirement": "Generate bill PDF with all specified sections including header, itemized table, footer, and saved message",
+      "reason": "No PDF generation functionality implemented in any component.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-23",
+      "requirement": "Create dead plant module screen with product selector, quantity input, reason dropdown, and submit functionality",
+      "reason": "DeadPlantForm is a minimal placeholder with no actual form fields or submission logic.",
+      "evidence": [
+        "frontend/src/components/deadplants/DeadPlantForm.tsx"
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "requirement": "Create expenses module screen with form, history table with filters, and monthly summary",
+      "reason": "ExpenseForm is a placeholder with no actual form fields. Filter functionality not visible in ExpenseTable.",
+      "evidence": [
+        "frontend/src/components/expenses/ExpenseForm.tsx",
+        "frontend/src/components/expenses/ExpenseTable.tsx"
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "requirement": "Create worker salary sub-section with forms and payment history",
+      "reason": "Workers page component exists but no evidence of actual form implementation or payment recording functionality.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-26",
+      "requirement": "Create monthly sales report screen with all specified metrics and charts",
+      "reason": "MonthlySalesReport page exists but implementation details not shown in diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-27",
+      "requirement": "Create yearly sales report screen with month-by-month breakdown",
+      "reason": "YearlySalesReport page exists but implementation details not shown in diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-28",
+      "requirement": "Create ROI report screen with investment calculation and trends",
+      "reason": "ROIReport page exists but implementation details not shown in diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-29",
+      "requirement": "Create CAGR report screen with calculations and comparisons",
+      "reason": "CAGRReport page exists but implementation details not shown in diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-30",
+      "requirement": "Create dead plant loss report screen with charts and insights",
+      "reason": "DeadPlantReport page exists but implementation details not shown in diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-31",
+      "requirement": "Create customers screen with customer list, search, and detailed purchase history",
+      "reason": "CustomerTable and CustomerDetail are placeholder implementations with no actual data display or search functionality.",
+      "evidence": [
+        "frontend/src/components/customers/CustomerTable.tsx",
+        "frontend/src/components/customers/CustomerDetail.tsx"
+      ]
+    },
+    {
+      "id": "REQ-32",
+      "requirement": "Create settings screen with business info editor, category managers, and data backup",
+      "reason": "Settings page exists but implementation details not shown in diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-34",
+      "requirement": "Create manifest.json file for PWA configuration",
+      "reason": "No manifest.json file present in the diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-35",
+      "requirement": "Implement service worker for PWA offline caching",
+      "reason": "No service worker file present in the diff.",
+      "evidence": []
+    },
+    {
+      "id": "REQ-36",
+      "requirement": "Implement PWA install prompt",
+      "reason": "No install prompt implementation visible in any component.",
+      "evidence": []
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Footer with caffeine.ai attribution link",
+      "reason": "BuildRequest contains no requirement for caffeine.ai attribution or external links in the footer. The footer should only contain 'Thank You! Visit Again! 🌱 Grow Green, Stay Green' as specified in REQ-22.",
+      "evidence": [
+        "frontend/src/components/layout/AppLayout.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.75,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/manifest.json",
+    "frontend/public/service-worker.js",
+    "frontend/src/App.tsx",
+    "frontend/src/components/billing/BillSuccessModal.tsx",
+    "frontend/src/components/billing/CartTable.tsx",
+    "frontend/src/components/billing/InventorySearch.tsx",
+    "frontend/src/components/billing/PaymentSection.tsx",
+    "frontend/src/components/customers/CustomerDetail.tsx",
+    "frontend/src/components/customers/CustomerTable.tsx",
+    "frontend/src/components/dashboard/RevenueChart.tsx",
+    "frontend/src/components/deadplants/DeadPlantForm.tsx",
+    "frontend/src/components/deadplants/DeadPlantTable.tsx",
+    "frontend/src/components/expenses/ExpenseForm.tsx",
+    "frontend/src/components/expenses/ExpenseTable.tsx",
+    "frontend/src/components/expenses/MonthlySummary.tsx",
+    "frontend/src/components/layout/AppLayout.tsx",
+    "frontend/src/components/layout/MobileNav.tsx",
+    "frontend/src/components/layout/Sidebar.tsx",
+    "frontend/src/components/plants/PlantForm.tsx",
+    "frontend/src/components/plants/PlantTable.tsx",
+    "frontend/src/components/pots/PotForm.tsx",
+    "frontend/src/components/pots/PotTable.tsx",
+    "frontend/src/components/propagation/PropagationForm.tsx",
+    "frontend/src/components/propagation/PropagationTable.tsx",
+    "frontend/src/components/pwa/InstallPrompt.tsx",
+    "frontend/src/components/reports/CAGRMetrics.tsx",
+    "frontend/src/components/reports/CAGRTrendChart.tsx",
+    "frontend/src/components/reports/DailySalesChart.tsx",
+    "frontend/src/components/reports/DeadLossImpact.tsx",
+    "frontend/src/components/reports/DeadPlantMetrics.tsx",
+    "frontend/src/components/reports/DeadPlantTips.tsx",
+    "frontend/src/components/reports/DeathRateTable.tsx",
+    "frontend/src/components/reports/InvestmentBreakdown.tsx",
+    "frontend/src/components/reports/LossByCategoryChart.tsx",
+    "frontend/src/components/reports/LossByReasonChart.tsx",
+    "frontend/src/components/reports/MetricsCards.tsx",
+    "frontend/src/components/reports/MonthlyBreakdownTable.tsx",
+    "frontend/src/components/reports/MonthlyDeathTrend.tsx",
+    "frontend/src/components/reports/MonthlyROIChart.tsx",
+    "frontend/src/components/reports/ROIComparison.tsx",
+    "frontend/src/components/reports/SmartInsights.tsx",
+    "frontend/src/components/reports/TopProducts.tsx",
+    "frontend/src/components/reports/YearComparisonChart.tsx",
+    "frontend/src/components/reports/YoYComparisonTable.tsx",
+    "frontend/src/components/reports/YoYGrowth.tsx",
+    "frontend/src/components/settings/BusinessInfoForm.tsx",
+    "frontend/src/components/workers/PaymentForm.tsx",
+    "frontend/src/components/workers/WorkerForm.tsx",
+    "frontend/src/components/workers/WorkerTable.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/reportUtils.ts",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/Billing.tsx",
+    "frontend/src/pages/CAGRReport.tsx",
+    "frontend/src/pages/Customers.tsx",
+    "frontend/src/pages/Dashboard.tsx",
+    "frontend/src/pages/DeadPlantReport.tsx",
+    "frontend/src/pages/DeadPlants.tsx",
+    "frontend/src/pages/Expenses.tsx",
+    "frontend/src/pages/MonthlySalesReport.tsx",
+    "frontend/src/pages/Plants.tsx",
+    "frontend/src/pages/Pots.tsx",
+    "frontend/src/pages/PropagationPlants.tsx",
+    "frontend/src/pages/ROIReport.tsx",
+    "frontend/src/pages/Settings.tsx",
+    "frontend/src/pages/Workers.tsx",
+    "frontend/src/pages/YearlySalesReport.tsx",
+    "frontend/src/registerServiceWorker.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

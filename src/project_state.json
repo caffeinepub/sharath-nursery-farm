@@ -1,0 +1,419 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Nursery business management PWA called 'Sharath Nursery Farm' with inventory management (plants/pots/propagation), billing system with optional customer details, dead plant tracking, expense management, comprehensive reports (sales/ROI/CAGR/losses), customer tracking, and offline PWA capabilities",
+  "architectural_notes": [
+    "React.js frontend with Tailwind CSS for styling, Node.js/Express backend, MongoDB database",
+    "Tech stack: jsPDF/react-pdf for PDFs, Recharts/Chart.js for analytics, React Context/Zustand for state management",
+    "Color scheme: Primary #2E7D32 (Green), Secondary #5D4037 (Brown), Accent #FFC107 (Yellow)",
+    "MongoDB collections: products, sales, deadPlants, expenses, workers, customers",
+    "Bill format: #SNF-001, #SNF-002 (auto-incrementing), dates in DD/MM/YYYY, currency ₹",
+    "Dead plant loss must be factored into all profit, ROI, and CAGR calculations",
+    "Stock auto-deduction on both billing and dead plant reporting",
+    "Optional customer details in billing with toggle; WhatsApp share only when phone exists",
+    "PWA features: manifest.json, service worker for offline support, installable, responsive for all devices"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Green leaf icon representing nursery farm for app logo, simple and recognizable design (nursery-logo.dim_192x192.png)\n- Larger version of green leaf icon for PWA icon (nursery-logo-large.dim_512x512.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-dashboard-screen-showing-today-s-total-sales-amount-today-s-total-bills-count-low-stock-alerts-items-with-stockqty-5-recent-dead-plant-alerts-monthly-revenue-mini-chart-and-quick-action-buttons-new-bill-add-stock-add-expense-using-react-with-state-from-react-query",
+      "title": "Create dashboard screen showing today's total sales amount, today's total bills count, low stock alerts (items with stockQty < 5), recent dead plant alerts, monthly revenue mini chart, and quick action buttons (New Bill, Add Stock, Add Expense) using React with state from React Query",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-plants-inventory-management-screen-with-form-to-add-edit-plants-name-category-dropdown-purchase-price-selling-price-stock-quantity-image-upload-table-list-view-of-all-plants-with-search-by-name-and-filter-by-category-delete-functionality-and-visual-low-stock-indicator-red-badge-for-items-with-stockqty-5",
+      "title": "Create plants inventory management screen with form to add/edit plants (name, category dropdown, purchase price, selling price, stock quantity, image upload), table/list view of all plants with search by name and filter by category, delete functionality, and visual low stock indicator (red badge) for items with stockQty < 5",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-pots-inventory-management-screen-with-form-to-add-edit-pots-name-size-dropdown-4-22-inches-colour-free-text-input-pot-type-dropdown-purchase-price-selling-price-stock-quantity-image-upload-table-view-with-search-and-filter-delete-functionality-and-low-stock-warnings",
+      "title": "Create pots inventory management screen with form to add/edit pots (name, size dropdown 4-22 inches, colour free text input, pot type dropdown, purchase price, selling price, stock quantity, image upload), table view with search and filter, delete functionality, and low stock warnings",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-propagation-plants-management-screen-with-form-to-add-edit-propagation-plants-name-propagation-type-dropdown-parent-plant-selector-from-plants-inventory-actual-cost-selling-price-stock-quantity-propagation-date-picker-ready-to-sell-date-picker-status-toggle-growing-ready-notes-textarea-image-upload-table-view-and-filtering-by-status",
+      "title": "Create propagation plants management screen with form to add/edit propagation plants (name, propagation type dropdown, parent plant selector from plants inventory, actual cost, selling price, stock quantity, propagation date picker, ready to sell date picker, status toggle Growing/Ready, notes textarea, image upload), table view, and filtering by status",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-billing-sales-screen-with-auto-incrementing-bill-number-display-auto-filled-current-date-customer-details-toggle-switch-add-customer-details-when-on-show-name-and-phone-fields-when-off-save-as-walk-in-customer-searchable-inventory-selector-searches-across-plants-pots-propagation-quantity-buttons-cart-with-item-list-showing-name-qty-price-total-subtotal-display-customer-pays-input-field-with-auto-calculated-balance-conditional-discount-due-buttons-shown-when-balance-0-payment-mode-selector-cash-upi-card-bank-transfer-mixed-and-generate-bill-button",
+      "title": "Create billing/sales screen with auto-incrementing bill number display, auto-filled current date, customer details toggle switch ('Add Customer Details?' - when ON show name and phone fields, when OFF save as 'Walk-in Customer'), searchable inventory selector (searches across plants, pots, propagation), quantity +/- buttons, cart with item list showing name/qty/price/total, subtotal display, customer pays input field with auto-calculated balance, conditional discount/due buttons (shown when balance > 0), payment mode selector (Cash/UPI/Card/Bank Transfer/Mixed), and Generate Bill button",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-after-bill-generation-display-three-action-buttons-print-bill-triggers-browser-print-dialog-send-via-whatsapp-opens-whatsapp-web-with-pre-filled-message-and-pdf-link-shown-only-if-customer-phone-exists-and-download-pdf-downloads-bill-as-pdf-file-the-bill-automatically-deducts-stock-quantities-from-inventory-upon-successful-generation",
+      "title": "After bill generation, display three action buttons: Print Bill (triggers browser print dialog), Send via WhatsApp (opens WhatsApp web with pre-filled message and PDF link, shown only if customer phone exists), and Download PDF (downloads bill as PDF file). The bill automatically deducts stock quantities from inventory upon successful generation.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-bill-pdf-with-header-section-sharath-nursery-farm-logo-icon-owner-name-dr-sagar-dn-full-address-near-prasanth-school-maddur-malavalli-main-road-km-doddi-571422-whatsapp-9964893711-instagram-sharathnursery-bill-details-bill-number-date-customer-name-phone-or-walk-in-customer-itemized-table-serial-no-item-name-with-pot-size-color-if-pot-quantity-price-total-subtotal-discount-if-any-grand-total-saved-message-you-saved-xx-on-this-purchase-if-discount-applied-payment-mode-and-footer-thank-you-visit-again-grow-green-stay-green",
+      "title": "Generate bill PDF with header section (Sharath Nursery Farm logo/icon, owner name 'Dr. Sagar DN', full address 'Near Prasanth School, Maddur Malavalli Main Road, KM Doddi - 571422', WhatsApp '9964893711', Instagram '@sharathnursery'), bill details (bill number, date, customer name/phone or 'Walk-in Customer'), itemized table (serial no, item name with pot size & color if pot, quantity, price, total), subtotal, discount (if any), grand total, saved message ('You saved ₹XX on this purchase! 🎊' if discount applied), payment mode, and footer ('Thank You! Visit Again! 🌱 Grow Green, Stay Green')",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-dead-plant-module-screen-with-product-selector-dropdown-loading-from-all-inventory-types-dead-damaged-quantity-input-reason-dropdown-disease-pest-overwatering-underwatering-weather-climate-root-rot-transport-damage-old-stock-expired-other-date-picker-notes-textarea-optional-photo-upload-and-submit-button-that-deducts-stock-calculates-loss-deadqty-purchaseprice-and-saves-to-dead-plant-records",
+      "title": "Create dead plant module screen with product selector (dropdown loading from all inventory types), dead/damaged quantity input, reason dropdown (Disease/Pest, Overwatering, Underwatering, Weather/Climate, Root Rot, Transport Damage, Old Stock/Expired, Other), date picker, notes textarea, optional photo upload, and submit button that deducts stock, calculates loss (deadQty × purchasePrice), and saves to dead plant records",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-expenses-module-screen-with-form-to-add-expense-date-picker-category-dropdown-with-all-12-categories-including-custom-category-description-textarea-amount-input-payment-mode-dropdown-expenses-history-table-with-filters-category-dropdown-date-range-picker-month-selector-and-monthly-expense-summary-card-showing-total-for-selected-month",
+      "title": "Create expenses module screen with form to add expense (date picker, category dropdown with all 12 categories including Custom Category, description textarea, amount input, payment mode dropdown), expenses history table with filters (category dropdown, date range picker, month selector), and monthly expense summary card showing total for selected month",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-worker-salary-sub-section-within-expenses-module-with-form-to-add-worker-name-phone-monthly-salary-join-date-record-salary-payment-form-worker-selector-date-amount-payment-mode-worker-list-table-showing-all-workers-with-payment-history-and-payment-history-view-per-worker",
+      "title": "Create worker salary sub-section within expenses module with form to add worker (name, phone, monthly salary, join date), record salary payment form (worker selector, date, amount, payment mode), worker list table showing all workers with payment history, and payment history view per worker",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-monthly-sales-report-screen-displaying-total-revenue-total-expenses-dead-plant-loss-total-investment-net-profit-revenue-expenses-dead-plant-loss-profit-margin-percentage-total-bills-count-total-customers-total-discounts-given-top-selling-products-list-and-bar-line-chart-showing-daily-sales-trend-for-the-selected-month",
+      "title": "Create monthly sales report screen displaying total revenue, total expenses, dead plant loss, total investment, net profit (Revenue - Expenses - Dead Plant Loss), profit margin percentage, total bills count, total customers, total discounts given, top selling products list, and bar/line chart showing daily sales trend for the selected month",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-yearly-sales-report-screen-with-month-by-month-breakdown-table-showing-columns-for-each-month-revenue-expenses-dead-loss-net-profit-margin-year-total-row-at-bottom-comparison-charts-bar-chart-comparing-monthly-revenue-and-profit-and-year-over-year-growth-percentage-indicator",
+      "title": "Create yearly sales report screen with month-by-month breakdown table showing columns for each month (Revenue, Expenses, Dead Loss, Net Profit, Margin), year total row at bottom, comparison charts (bar chart comparing monthly revenue and profit), and year-over-year growth percentage indicator",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-roi-return-on-investment-report-screen-displaying-total-investment-calculation-all-expenses-inventory-purchase-cost-dead-plant-loss-net-profit-roi-percentage-using-formula-net-profit-total-investment-100-roi-comparison-card-showing-roi-with-and-without-dead-plant-loss-monthly-roi-trend-line-chart-and-business-insight-message-e-g-you-earned-xx-for-every-100-invested",
+      "title": "Create ROI (Return on Investment) report screen displaying total investment calculation (All Expenses + Inventory Purchase Cost + Dead Plant Loss), net profit, ROI percentage using formula (Net Profit / Total Investment) × 100, ROI comparison card showing ROI with and without dead plant loss, monthly ROI trend line chart, and business insight message (e.g., 'You earned ₹XX for every ₹100 invested')",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-cagr-compound-annual-growth-rate-report-screen-displaying-revenue-cagr-and-profit-cagr-calculations-using-formula-end-value-start-value-1-years-1-year-over-year-comparison-table-growth-trend-line-chart-and-dead-plant-loss-impact-comparison-showing-cagr-with-and-without-dead-losses",
+      "title": "Create CAGR (Compound Annual Growth Rate) report screen displaying Revenue CAGR and Profit CAGR calculations using formula (End Value / Start Value)^(1/years) - 1, year-over-year comparison table, growth trend line chart, and dead plant loss impact comparison showing CAGR with and without dead losses",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-dead-plant-loss-report-screen-displaying-total-plants-dead-count-total-loss-amount-in-loss-by-reason-pie-chart-loss-by-plant-category-bar-chart-monthly-death-trend-line-chart-death-rate-percentage-table-per-product-calculated-as-dead-count-total-stock-100-smart-insights-section-showing-high-death-rate-alerts-for-products-above-threshold-and-tips-section-based-on-death-patterns",
+      "title": "Create dead plant loss report screen displaying total plants dead count, total loss amount in ₹, loss by reason pie chart, loss by plant category bar chart, monthly death trend line chart, death rate percentage table per product (calculated as dead count / total stock × 100), smart insights section showing high death rate alerts for products above threshold, and tips section based on death patterns",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-customers-screen-displaying-customer-list-table-with-columns-name-phone-total-purchases-count-total-spent-total-discount-search-functionality-by-name-or-phone-and-detailed-view-showing-individual-customer-s-complete-purchase-history-with-bill-numbers-and-dates-only-for-customers-whose-details-were-added-during-billing",
+      "title": "Create customers screen displaying customer list table with columns (name, phone, total purchases count, total spent ₹, total discount ₹), search functionality by name or phone, and detailed view showing individual customer's complete purchase history with bill numbers and dates (only for customers whose details were added during billing)",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-settings-screen-with-sections-for-business-info-editor-app-name-owner-name-full-address-whatsapp-number-instagram-handle-tagline-all-editable-fields-expense-categories-manager-add-edit-delete-custom-categories-inventory-categories-manager-add-edit-plant-categories-data-backup-section-with-export-button-downloads-all-data-as-json-and-print-settings-configure-invoice-template-preferences",
+      "title": "Create settings screen with sections for: business info editor (app name, owner name, full address, WhatsApp number, Instagram handle, tagline - all editable fields), expense categories manager (add/edit/delete custom categories), inventory categories manager (add/edit plant categories), data backup section with export button (downloads all data as JSON), and print settings (configure invoice template preferences)",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-responsive-layout-for-all-screens-ensuring-mobile-first-design-that-works-on-phones-320px-tablets-768px-and-desktops-1024px-with-collapsible-sidebar-navigation-on-mobile-touch-friendly-buttons-and-inputs-min-44px-tap-targets-and-optimized-table-views-that-stack-or-scroll-horizontally-on-small-screens",
+      "title": "Implement responsive layout for all screens ensuring mobile-first design that works on phones (320px+), tablets (768px+), and desktops (1024px+), with collapsible sidebar navigation on mobile, touch-friendly buttons and inputs (min 44px tap targets), and optimized table views that stack or scroll horizontally on small screens",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-manifest-json-file-for-pwa-configuration-with-app-name-sharath-nursery-farm-short-name-snf-description-start-url-display-mode-standalone-theme-color-2e7d32-green-background-color-and-icons-array-with-multiple-sizes-192x192-512x512-for-app-installation",
+      "title": "Create manifest.json file for PWA configuration with app name 'Sharath Nursery Farm', short_name 'SNF', description, start_url, display mode standalone, theme_color #2E7D32 (green), background_color, and icons array with multiple sizes (192x192, 512x512) for app installation",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-service-worker-for-pwa-offline-caching-strategy-that-caches-app-shell-html-css-js-static-assets-and-api-responses-with-runtime-caching-for-images-and-api-calls-and-cache-first-strategy-for-static-resources-enabling-viewing-of-cached-data-when-offline",
+      "title": "Implement service worker for PWA offline caching strategy that caches app shell (HTML, CSS, JS), static assets, and API responses, with runtime caching for images and API calls, and cache-first strategy for static resources, enabling viewing of cached data when offline",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-pwa-install-prompt-that-detects-when-app-is-installable-displays-custom-install-banner-or-button-with-message-install-sharath-nursery-farm-app-handles-beforeinstallprompt-event-and-shows-confirmation-after-successful-installation",
+      "title": "Implement PWA install prompt that detects when app is installable, displays custom install banner or button with message 'Install Sharath Nursery Farm app', handles beforeinstallprompt event, and shows confirmation after successful installation",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-visual-theme-throughout-the-application-with-primary-color-2e7d32-green-for-headers-buttons-and-accents-secondary-color-5d4037-brown-for-secondary-elements-accent-color-ffc107-yellow-for-highlights-and-alerts-using-tailwind-css-custom-color-configuration-and-ensure-consistent-typography-spacing-and-component-styling-across-all-screens",
+      "title": "Apply visual theme throughout the application with primary color #2E7D32 (green) for headers, buttons, and accents, secondary color #5D4037 (brown) for secondary elements, accent color #FFC107 (yellow) for highlights and alerts, using Tailwind CSS custom color configuration, and ensure consistent typography, spacing, and component styling across all screens",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Dashboard with today's sales, bills count, low stock alerts, dead plant alerts, monthly revenue chart, and quick actions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Plants inventory module with categories, purchase/selling prices, stock tracking, image upload, search/filter, and low stock warnings",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Pots inventory module with size (4-22 inch), color, pot type, prices, stock, and image upload",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Propagation plants module with propagation type, parent plant linking, actual cost, dates, status tracking, and notes",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Billing system with auto-incrementing bill numbers, optional customer details toggle, inventory search, cart, discount/due handling, payment modes, and auto stock deduction",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Bill PDF generation with business header, itemized table, discount messaging, and footer, plus print/WhatsApp/download options",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Dead plant module with product selection, quantity, reason tracking, photo upload, auto stock deduction, and loss calculation",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Expenses module with categorization, worker salary tracking, payment history, and monthly summaries with filters",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Monthly sales report with revenue, expenses, dead loss, net profit, margin, discounts, top products, and daily trend charts",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Yearly sales report with month-by-month breakdown, year totals, comparison charts, and YoY growth",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "ROI calculator with investment tracking, dead loss impact comparison, monthly trend chart, and business insights",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "CAGR calculator for revenue and profit with year-over-year comparison, growth trends, and dead loss impact",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Dead plant loss report with total counts/amounts, loss by reason/category charts, monthly trends, death rates, and smart insights",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Customer management with list, purchase history, total spent tracking (only for customers added during billing)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Settings module for business info editing, category management, data backup, and print settings",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "PWA implementation with manifest.json, service worker, offline caching, install prompt, and responsive design",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Create backend data models in main.mo for products (with fields: name, type enum (plant/pot/propagation), category, size, colour, potType, propagationType, parentPlant, purchasePrice, sellingPrice, stockQty, image, dateAdded, status), sales (billNo, date, customerName, customerPhone, isWalkIn, items array with productId/name/qty/price/total, subtotal, discount, discountReason, totalPaid, paymentMode, savedMessage), deadPlants (date, productId, productName, deadQty, purchasePriceEach, totalLoss, reason, notes, photo), expenses (date, category, description, amount, paymentMode), workers (name, phone, salary, joinDate, payments array), and customers (name, phone, totalPurchases, totalSpent, totalDiscount)",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Implement backend CRUD operations for plants inventory with methods to add plant (name, category enum: Flowering/Indoor/Outdoor/Medicinal/Fruit/Vegetable/Succulent, purchasePrice, sellingPrice, stockQty, image), update plant details, delete plant, get all plants with search and category filter, and retrieve low stock plants (stockQty < 5)",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-19",
+      "summary": "Implement backend CRUD operations for pots inventory with methods to add pot (name, size enum 4-22 inches, colour text field, potType enum: Plastic/Ceramic/Clay/Cement/Metal/Fiber/Terracotta/Wooden/Other, purchasePrice, sellingPrice, stockQty, image), update pot, delete pot, and get all pots with search and filter capabilities",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-20",
+      "summary": "Implement backend CRUD operations for propagation plants inventory with methods to add propagation plant (name, propagationType enum: Stem Cutting/Leaf Cutting/Root Division/Grafting/Layering/Seed Germination/Tissue Culture/Other, parentPlant reference to existing plant ID, actualCost, sellingPrice, stockQty, propagationDate, readyToSellDate, status enum: Growing/Ready, notes, image), update propagation plant, delete propagation plant, and get all propagation plants with filters",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Implement backend billing system with auto-incrementing bill number (format #SNF-001, #SNF-002, etc.), method to create sale with optional customer details (name, phone, or mark as walk-in), line items array, subtotal calculation, discount handling, payment mode (Cash/UPI/Card/Bank Transfer/Mixed), and automatic stock deduction from inventory for all product types after sale creation",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Implement backend dead plant tracking with method to record dead/damaged products (select from any inventory type, deadQty, reason enum: Disease/Pest, Overwatering, Underwatering, Weather/Climate, Root Rot, Transport Damage, Old Stock/Expired, Other, date, notes, photo), calculate loss (deadQty × purchasePrice), auto-deduct from inventory stock, and save to deadPlants records",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Implement backend expenses module with methods to add expense (date, category enum: Electricity Bill, Water Bill, Worker Salary, Transport/Delivery, Rent, Pesticides/Fertilizers, Equipment/Tools, Marketing/Ads, Seeds/Saplings Purchase, Maintenance/Repairs, Phone/Internet, Custom Category, description, amount, paymentMode), retrieve expenses with filters (category, date range, month), and calculate monthly expense summaries",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Implement backend worker management with methods to add worker (name, phone, monthly salary, join date), record salary payment (date, amount, payment mode), retrieve worker payment history, and query all workers",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Implement backend customer tracking with automatic customer record creation/update when sales include customer details (name, phone), aggregating totalPurchases count, totalSpent amount, and totalDiscount across all their bills",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Implement backend monthly sales report calculation with methods to compute total revenue, total expenses, dead plant loss, net profit (Revenue - Expenses - Dead Plant Loss), profit margin percentage, total bills count, total customers count, total discounts given, and identify top-selling products for a given month",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Implement backend yearly sales report calculation with methods to generate month-by-month breakdown showing revenue, expenses, dead loss, net profit, and margin for each month, year totals, and year-over-year growth percentage",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Implement backend ROI (Return on Investment) calculation with formula ROI = (Net Profit / Total Investment) × 100, where Total Investment = All Expenses + Inventory Purchase Cost + Dead Plant Loss, providing ROI with and without dead plant loss for comparison and monthly ROI trend data",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Implement backend CAGR (Compound Annual Growth Rate) calculation with formula CAGR = (End Value / Start Value)^(1/years) - 1, calculating both Revenue CAGR and Profit CAGR with year-over-year comparison and dead plant loss impact analysis",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Implement backend dead plant loss analytics with methods to calculate total dead count, total loss amount, loss aggregation by reason, loss aggregation by product category, monthly death trend, death rate percentage per product (dead count / total stock × 100), and generate smart insights for high death rate products",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-31",
+      "summary": "Implement backend business settings management with methods to update business info (name, owner, address, whatsapp, instagram, tagline), manage custom expense categories, manage custom inventory categories, and provide data backup/export functionality",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Sharath Nursery Farm",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

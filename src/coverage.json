@@ -1,0 +1,668 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-23T02:20:02.020Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 37,
+    "implemented": 22,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Create backend data models in main.mo for products (with fields: name, type enum (plant/pot/propagation), category, size, colour, potType, propagationType, parentPlant, purchasePrice, sellingPrice, stockQty, image, dateAdded, status), sales (billNo, date, customerName, customerPhone, isWalkIn, items array with productId/name/qty/price/total, subtotal, discount, discountReason, totalPaid, paymentMode, savedMessage), deadPlants (date, productId, productName, deadQty, purchasePriceEach, totalLoss, reason, notes, photo), expenses (date, category, description, amount, paymentMode), workers (name, phone, salary, joinDate, payments array), and customers (name, phone, totalPurchases, totalSpent, totalDiscount)",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Implement backend monthly sales report calculation with methods to compute total revenue, total expenses, dead plant loss, net profit (Revenue - Expenses - Dead Plant Loss), profit margin percentage, total bills count, total customers count, total discounts given, and identify top-selling products for a given month",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Implement backend yearly sales report calculation with methods to generate month-by-month breakdown showing revenue, expenses, dead loss, net profit, and margin for each month, year totals, and year-over-year growth percentage",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Implement backend ROI (Return on Investment) calculation with formula ROI = (Net Profit / Total Investment) × 100, where Total Investment = All Expenses + Inventory Purchase Cost + Dead Plant Loss, providing ROI with and without dead plant loss for comparison and monthly ROI trend data",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Implement backend CAGR (Compound Annual Growth Rate) calculation with formula CAGR = (End Value / Start Value)^(1/years) - 1, calculating both Revenue CAGR and Profit CAGR with year-over-year comparison and dead plant loss impact analysis",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Implement backend dead plant loss analytics with methods to calculate total dead count, total loss amount, loss aggregation by reason, loss aggregation by product category, monthly death trend, death rate percentage per product (dead count / total stock × 100), and generate smart insights for high death rate products",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Implement backend business settings management with methods to update business info (name, owner, address, whatsapp, instagram, tagline), manage custom expense categories, manage custom inventory categories, and provide data backup/export functionality",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Create dashboard screen showing today's total sales amount, today's total bills count, low stock alerts (items with stockQty < 5), recent dead plant alerts, monthly revenue mini chart, and quick action buttons (New Bill, Add Stock, Add Expense) using React with state from React Query",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Dashboard.tsx",
+          "frontend/src/components/dashboard/TodayMetrics.tsx",
+          "frontend/src/components/dashboard/LowStockAlerts.tsx",
+          "frontend/src/components/dashboard/RecentDeadPlants.tsx",
+          "frontend/src/components/dashboard/RevenueChart.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Dashboard.tsx",
+          "frontend/src/components/dashboard/RevenueChart.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "Create plants inventory management screen with form to add/edit plants (name, category dropdown, purchase price, selling price, stock quantity, image upload), table/list view of all plants with search by name and filter by category, delete functionality, and visual low stock indicator (red badge) for items with stockQty < 5",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Plants.tsx",
+          "frontend/src/components/plants/PlantForm.tsx",
+          "frontend/src/components/plants/PlantTable.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Plants.tsx",
+          "frontend/src/components/plants/PlantForm.tsx",
+          "frontend/src/components/plants/PlantTable.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-18",
+        "summary": "Create pots inventory management screen with form to add/edit pots (name, size dropdown 4-22 inches, colour free text input, pot type dropdown, purchase price, selling price, stock quantity, image upload), table view with search and filter, delete functionality, and low stock warnings",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Pots.tsx",
+          "frontend/src/components/pots/PotForm.tsx",
+          "frontend/src/components/pots/PotTable.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Pots.tsx",
+          "frontend/src/components/pots/PotForm.tsx",
+          "frontend/src/components/pots/PotTable.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-19",
+        "summary": "Create propagation plants management screen with form to add/edit propagation plants (name, propagation type dropdown, parent plant selector from plants inventory, actual cost, selling price, stock quantity, propagation date picker, ready to sell date picker, status toggle Growing/Ready, notes textarea, image upload), table view, and filtering by status",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/PropagationPlants.tsx",
+          "frontend/src/components/propagation/PropagationForm.tsx",
+          "frontend/src/components/propagation/PropagationTable.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/PropagationPlants.tsx",
+          "frontend/src/components/propagation/PropagationForm.tsx",
+          "frontend/src/components/propagation/PropagationTable.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Implement backend CRUD operations for plants inventory with methods to add plant (name, category enum: Flowering/Indoor/Outdoor/Medicinal/Fruit/Vegetable/Succulent, purchasePrice, sellingPrice, stockQty, image), update plant details, delete plant, get all plants with search and category filter, and retrieve low stock plants (stockQty < 5)",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-20",
+        "summary": "Create billing/sales screen with auto-incrementing bill number display, auto-filled current date, customer details toggle switch ('Add Customer Details?' - when ON show name and phone fields, when OFF save as 'Walk-in Customer'), searchable inventory selector (searches across plants, pots, propagation), quantity +/- buttons, cart with item list showing name/qty/price/total, subtotal display, customer pays input field with auto-calculated balance, conditional discount/due buttons (shown when balance > 0), payment mode selector (Cash/UPI/Card/Bank Transfer/Mixed), and Generate Bill button",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Billing.tsx",
+          "frontend/src/components/billing/InventorySearch.tsx",
+          "frontend/src/components/billing/CartTable.tsx",
+          "frontend/src/components/billing/PaymentSection.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Billing.tsx",
+          "frontend/src/components/billing/InventorySearch.tsx",
+          "frontend/src/components/billing/CartTable.tsx",
+          "frontend/src/components/billing/PaymentSection.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-21",
+        "summary": "After bill generation, display three action buttons: Print Bill (triggers browser print dialog), Send via WhatsApp (opens WhatsApp web with pre-filled message and PDF link, shown only if customer phone exists), and Download PDF (downloads bill as PDF file). The bill automatically deducts stock quantities from inventory upon successful generation.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/billing/BillSuccessModal.tsx",
+          "frontend/src/pages/Billing.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/billing/BillSuccessModal.tsx",
+          "frontend/src/pages/Billing.tsx"
+        ]
+      },
+      {
+        "id": "REQ-22",
+        "summary": "Generate bill PDF with header section (Sharath Nursery Farm logo/icon, owner name 'Dr. Sagar DN', full address 'Near Prasanth School, Maddur Malavalli Main Road, KM Doddi - 571422', WhatsApp '9964893711', Instagram '@sharathnursery'), bill details (bill number, date, customer name/phone or 'Walk-in Customer'), itemized table (serial no, item name with pot size & color if pot, quantity, price, total), subtotal, discount (if any), grand total, saved message ('You saved ₹XX on this purchase! 🎊' if discount applied), payment mode, and footer ('Thank You! Visit Again! 🌱 Grow Green, Stay Green')",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/utils/generateBillPDF.ts",
+          "frontend/src/components/billing/BillSuccessModal.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/billing/BillSuccessModal.tsx"
+        ]
+      },
+      {
+        "id": "REQ-23",
+        "summary": "Create dead plant module screen with product selector (dropdown loading from all inventory types), dead/damaged quantity input, reason dropdown (Disease/Pest, Overwatering, Underwatering, Weather/Climate, Root Rot, Transport Damage, Old Stock/Expired, Other), date picker, notes textarea, optional photo upload, and submit button that deducts stock, calculates loss (deadQty × purchasePrice), and saves to dead plant records",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/DeadPlants.tsx",
+          "frontend/src/components/deadplants/DeadPlantForm.tsx",
+          "frontend/src/components/deadplants/DeadPlantTable.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/DeadPlants.tsx",
+          "frontend/src/components/deadplants/DeadPlantForm.tsx",
+          "frontend/src/components/deadplants/DeadPlantTable.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-24",
+        "summary": "Create expenses module screen with form to add expense (date picker, category dropdown with all 12 categories including Custom Category, description textarea, amount input, payment mode dropdown), expenses history table with filters (category dropdown, date range picker, month selector), and monthly expense summary card showing total for selected month",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Expenses.tsx",
+          "frontend/src/components/expenses/ExpenseForm.tsx",
+          "frontend/src/components/expenses/ExpenseTable.tsx",
+          "frontend/src/components/expenses/MonthlySummary.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Expenses.tsx",
+          "frontend/src/components/expenses/ExpenseForm.tsx",
+          "frontend/src/components/expenses/ExpenseTable.tsx",
+          "frontend/src/components/expenses/MonthlySummary.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-25",
+        "summary": "Create worker salary sub-section within expenses module with form to add worker (name, phone, monthly salary, join date), record salary payment form (worker selector, date, amount, payment mode), worker list table showing all workers with payment history, and payment history view per worker",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Workers.tsx",
+          "frontend/src/components/workers/WorkerForm.tsx",
+          "frontend/src/components/workers/PaymentForm.tsx",
+          "frontend/src/components/workers/WorkerTable.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Workers.tsx",
+          "frontend/src/components/workers/WorkerForm.tsx",
+          "frontend/src/components/workers/PaymentForm.tsx",
+          "frontend/src/components/workers/WorkerTable.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-26",
+        "summary": "Create monthly sales report screen displaying total revenue, total expenses, dead plant loss, total investment, net profit (Revenue - Expenses - Dead Plant Loss), profit margin percentage, total bills count, total customers, total discounts given, top selling products list, and bar/line chart showing daily sales trend for the selected month",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/MonthlySalesReport.tsx",
+          "frontend/src/components/reports/MetricsCards.tsx",
+          "frontend/src/components/reports/TopProducts.tsx",
+          "frontend/src/components/reports/DailySalesChart.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/MonthlySalesReport.tsx",
+          "frontend/src/components/reports/MetricsCards.tsx",
+          "frontend/src/components/reports/TopProducts.tsx",
+          "frontend/src/components/reports/DailySalesChart.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-27",
+        "summary": "Create yearly sales report screen with month-by-month breakdown table showing columns for each month (Revenue, Expenses, Dead Loss, Net Profit, Margin), year total row at bottom, comparison charts (bar chart comparing monthly revenue and profit), and year-over-year growth percentage indicator",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/YearlySalesReport.tsx",
+          "frontend/src/components/reports/MonthlyBreakdownTable.tsx",
+          "frontend/src/components/reports/YearComparisonChart.tsx",
+          "frontend/src/components/reports/YoYGrowth.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/YearlySalesReport.tsx",
+          "frontend/src/components/reports/MonthlyBreakdownTable.tsx",
+          "frontend/src/components/reports/YearComparisonChart.tsx",
+          "frontend/src/components/reports/YoYGrowth.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-28",
+        "summary": "Create ROI (Return on Investment) report screen displaying total investment calculation (All Expenses + Inventory Purchase Cost + Dead Plant Loss), net profit, ROI percentage using formula (Net Profit / Total Investment) × 100, ROI comparison card showing ROI with and without dead plant loss, monthly ROI trend line chart, and business insight message (e.g., 'You earned ₹XX for every ₹100 invested')",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ROIReport.tsx",
+          "frontend/src/components/reports/InvestmentBreakdown.tsx",
+          "frontend/src/components/reports/ROIComparison.tsx",
+          "frontend/src/components/reports/MonthlyROIChart.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ROIReport.tsx",
+          "frontend/src/components/reports/InvestmentBreakdown.tsx",
+          "frontend/src/components/reports/ROIComparison.tsx",
+          "frontend/src/components/reports/MonthlyROIChart.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-29",
+        "summary": "Create CAGR (Compound Annual Growth Rate) report screen displaying Revenue CAGR and Profit CAGR calculations using formula (End Value / Start Value)^(1/years) - 1, year-over-year comparison table, growth trend line chart, and dead plant loss impact comparison showing CAGR with and without dead losses",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/CAGRReport.tsx",
+          "frontend/src/components/reports/CAGRMetrics.tsx",
+          "frontend/src/components/reports/YoYComparisonTable.tsx",
+          "frontend/src/components/reports/CAGRTrendChart.tsx",
+          "frontend/src/components/reports/DeadLossImpact.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/CAGRReport.tsx",
+          "frontend/src/components/reports/CAGRMetrics.tsx",
+          "frontend/src/components/reports/YoYComparisonTable.tsx",
+          "frontend/src/components/reports/CAGRTrendChart.tsx",
+          "frontend/src/components/reports/DeadLossImpact.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Implement backend CRUD operations for pots inventory with methods to add pot (name, size enum 4-22 inches, colour text field, potType enum: Plastic/Ceramic/Clay/Cement/Metal/Fiber/Terracotta/Wooden/Other, purchasePrice, sellingPrice, stockQty, image), update pot, delete pot, and get all pots with search and filter capabilities",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-30",
+        "summary": "Create dead plant loss report screen displaying total plants dead count, total loss amount in ₹, loss by reason pie chart, loss by plant category bar chart, monthly death trend line chart, death rate percentage table per product (calculated as dead count / total stock × 100), smart insights section showing high death rate alerts for products above threshold, and tips section based on death patterns",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/DeadPlantReport.tsx",
+          "frontend/src/components/reports/DeadPlantMetrics.tsx",
+          "frontend/src/components/reports/LossByReasonChart.tsx",
+          "frontend/src/components/reports/LossByCategoryChart.tsx",
+          "frontend/src/components/reports/MonthlyDeathTrend.tsx",
+          "frontend/src/components/reports/DeathRateTable.tsx",
+          "frontend/src/components/reports/SmartInsights.tsx",
+          "frontend/src/components/reports/DeadPlantTips.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/DeadPlantReport.tsx",
+          "frontend/src/components/reports/DeadPlantMetrics.tsx",
+          "frontend/src/components/reports/LossByReasonChart.tsx",
+          "frontend/src/components/reports/LossByCategoryChart.tsx",
+          "frontend/src/components/reports/MonthlyDeathTrend.tsx",
+          "frontend/src/components/reports/DeathRateTable.tsx",
+          "frontend/src/components/reports/SmartInsights.tsx",
+          "frontend/src/components/reports/DeadPlantTips.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-31",
+        "summary": "Create customers screen displaying customer list table with columns (name, phone, total purchases count, total spent ₹, total discount ₹), search functionality by name or phone, and detailed view showing individual customer's complete purchase history with bill numbers and dates (only for customers whose details were added during billing)",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Customers.tsx",
+          "frontend/src/components/customers/CustomerTable.tsx",
+          "frontend/src/components/customers/CustomerDetail.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Customers.tsx",
+          "frontend/src/components/customers/CustomerTable.tsx",
+          "frontend/src/components/customers/CustomerDetail.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-32",
+        "summary": "Create settings screen with sections for: business info editor (app name, owner name, full address, WhatsApp number, Instagram handle, tagline - all editable fields), expense categories manager (add/edit/delete custom categories), inventory categories manager (add/edit plant categories), data backup section with export button (downloads all data as JSON), and print settings (configure invoice template preferences)",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/Settings.tsx",
+          "frontend/src/components/settings/BusinessInfoForm.tsx",
+          "frontend/src/components/settings/CategoryManager.tsx",
+          "frontend/src/components/settings/DataBackup.tsx",
+          "frontend/src/components/settings/PrintSettings.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/Settings.tsx",
+          "frontend/src/components/settings/BusinessInfoForm.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-33",
+        "summary": "Implement responsive layout for all screens ensuring mobile-first design that works on phones (320px+), tablets (768px+), and desktops (1024px+), with collapsible sidebar navigation on mobile, touch-friendly buttons and inputs (min 44px tap targets), and optimized table views that stack or scroll horizontally on small screens",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/layout/AppLayout.tsx",
+          "frontend/src/components/layout/Sidebar.tsx",
+          "frontend/src/components/layout/MobileNav.tsx",
+          "frontend/src/index.css",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/layout/AppLayout.tsx",
+          "frontend/src/components/layout/Sidebar.tsx",
+          "frontend/src/components/layout/MobileNav.tsx",
+          "frontend/src/index.css",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-34",
+        "summary": "Create manifest.json file for PWA configuration with app name 'Sharath Nursery Farm', short_name 'SNF', description, start_url, display mode standalone, theme_color #2E7D32 (green), background_color, and icons array with multiple sizes (192x192, 512x512) for app installation",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/manifest.json",
+          "frontend/index.html"
+        ],
+        "matchedFiles": [
+          "frontend/public/manifest.json",
+          "frontend/index.html"
+        ]
+      },
+      {
+        "id": "REQ-35",
+        "summary": "Implement service worker for PWA offline caching strategy that caches app shell (HTML, CSS, JS), static assets, and API responses, with runtime caching for images and API calls, and cache-first strategy for static resources, enabling viewing of cached data when offline",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/service-worker.js",
+          "frontend/src/registerServiceWorker.ts",
+          "frontend/src/main.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/public/service-worker.js",
+          "frontend/src/registerServiceWorker.ts",
+          "frontend/src/main.tsx"
+        ]
+      },
+      {
+        "id": "REQ-36",
+        "summary": "Implement PWA install prompt that detects when app is installable, displays custom install banner or button with message 'Install Sharath Nursery Farm app', handles beforeinstallprompt event, and shows confirmation after successful installation",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/pwa/InstallPrompt.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/pwa/InstallPrompt.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-37",
+        "summary": "Apply visual theme throughout the application with primary color #2E7D32 (green) for headers, buttons, and accents, secondary color #5D4037 (brown) for secondary elements, accent color #FFC107 (yellow) for highlights and alerts, using Tailwind CSS custom color configuration, and ensure consistent typography, spacing, and component styling across all screens",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/tailwind.config.js",
+          "frontend/src/index.css"
+        ],
+        "matchedFiles": [
+          "frontend/tailwind.config.js",
+          "frontend/src/index.css"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement backend CRUD operations for propagation plants inventory with methods to add propagation plant (name, propagationType enum: Stem Cutting/Leaf Cutting/Root Division/Grafting/Layering/Seed Germination/Tissue Culture/Other, parentPlant reference to existing plant ID, actualCost, sellingPrice, stockQty, propagationDate, readyToSellDate, status enum: Growing/Ready, notes, image), update propagation plant, delete propagation plant, and get all propagation plants with filters",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Implement backend billing system with auto-incrementing bill number (format #SNF-001, #SNF-002, etc.), method to create sale with optional customer details (name, phone, or mark as walk-in), line items array, subtotal calculation, discount handling, payment mode (Cash/UPI/Card/Bank Transfer/Mixed), and automatic stock deduction from inventory for all product types after sale creation",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement backend dead plant tracking with method to record dead/damaged products (select from any inventory type, deadQty, reason enum: Disease/Pest, Overwatering, Underwatering, Weather/Climate, Root Rot, Transport Damage, Old Stock/Expired, Other, date, notes, photo), calculate loss (deadQty × purchasePrice), auto-deduct from inventory stock, and save to deadPlants records",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Implement backend expenses module with methods to add expense (date, category enum: Electricity Bill, Water Bill, Worker Salary, Transport/Delivery, Rent, Pesticides/Fertilizers, Equipment/Tools, Marketing/Ads, Seeds/Saplings Purchase, Maintenance/Repairs, Phone/Internet, Custom Category, description, amount, paymentMode), retrieve expenses with filters (category, date range, month), and calculate monthly expense summaries",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Implement backend worker management with methods to add worker (name, phone, monthly salary, join date), record salary payment (date, amount, payment mode), retrieve worker payment history, and query all workers",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Implement backend customer tracking with automatic customer record creation/update when sales include customer details (name, phone), aggregating totalPurchases count, totalSpent amount, and totalDiscount across all their bills",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/public/assets/generated/nursery-logo-large.dim_512x512.png",
+    "frontend/public/assets/generated/nursery-logo.dim_192x192.png",
+    "frontend/public/manifest.json",
+    "frontend/public/service-worker.js",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/billing/BillSuccessModal.tsx",
+    "frontend/src/components/billing/CartTable.tsx",
+    "frontend/src/components/billing/InventorySearch.tsx",
+    "frontend/src/components/billing/PaymentSection.tsx",
+    "frontend/src/components/customers/CustomerDetail.tsx",
+    "frontend/src/components/customers/CustomerTable.tsx",
+    "frontend/src/components/dashboard/RevenueChart.tsx",
+    "frontend/src/components/deadplants/DeadPlantForm.tsx",
+    "frontend/src/components/deadplants/DeadPlantTable.tsx",
+    "frontend/src/components/expenses/ExpenseForm.tsx",
+    "frontend/src/components/expenses/ExpenseTable.tsx",
+    "frontend/src/components/expenses/MonthlySummary.tsx",
+    "frontend/src/components/layout/AppLayout.tsx",
+    "frontend/src/components/layout/MobileNav.tsx",
+    "frontend/src/components/layout/Sidebar.tsx",
+    "frontend/src/components/plants/PlantForm.tsx",
+    "frontend/src/components/plants/PlantTable.tsx",
+    "frontend/src/components/pots/PotForm.tsx",
+    "frontend/src/components/pots/PotTable.tsx",
+    "frontend/src/components/propagation/PropagationForm.tsx",
+    "frontend/src/components/propagation/PropagationTable.tsx",
+    "frontend/src/components/pwa/InstallPrompt.tsx",
+    "frontend/src/components/reports/CAGRMetrics.tsx",
+    "frontend/src/components/reports/CAGRTrendChart.tsx",
+    "frontend/src/components/reports/DailySalesChart.tsx",
+    "frontend/src/components/reports/DeadLossImpact.tsx",
+    "frontend/src/components/reports/DeadPlantMetrics.tsx",
+    "frontend/src/components/reports/DeadPlantTips.tsx",
+    "frontend/src/components/reports/DeathRateTable.tsx",
+    "frontend/src/components/reports/InvestmentBreakdown.tsx",
+    "frontend/src/components/reports/LossByCategoryChart.tsx",
+    "frontend/src/components/reports/LossByReasonChart.tsx",
+    "frontend/src/components/reports/MetricsCards.tsx",
+    "frontend/src/components/reports/MonthlyBreakdownTable.tsx",
+    "frontend/src/components/reports/MonthlyDeathTrend.tsx",
+    "frontend/src/components/reports/MonthlyROIChart.tsx",
+    "frontend/src/components/reports/ROIComparison.tsx",
+    "frontend/src/components/reports/SmartInsights.tsx",
+    "frontend/src/components/reports/TopProducts.tsx",
+    "frontend/src/components/reports/YearComparisonChart.tsx",
+    "frontend/src/components/reports/YoYComparisonTable.tsx",
+    "frontend/src/components/reports/YoYGrowth.tsx",
+    "frontend/src/components/settings/BusinessInfoForm.tsx",
+    "frontend/src/components/workers/PaymentForm.tsx",
+    "frontend/src/components/workers/WorkerForm.tsx",
+    "frontend/src/components/workers/WorkerTable.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/reportUtils.ts",
+    "frontend/src/lib/utils.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/Billing.tsx",
+    "frontend/src/pages/CAGRReport.tsx",
+    "frontend/src/pages/Customers.tsx",
+    "frontend/src/pages/Dashboard.tsx",
+    "frontend/src/pages/DeadPlantReport.tsx",
+    "frontend/src/pages/DeadPlants.tsx",
+    "frontend/src/pages/Expenses.tsx",
+    "frontend/src/pages/MonthlySalesReport.tsx",
+    "frontend/src/pages/Plants.tsx",
+    "frontend/src/pages/Pots.tsx",
+    "frontend/src/pages/PropagationPlants.tsx",
+    "frontend/src/pages/ROIReport.tsx",
+    "frontend/src/pages/Settings.tsx",
+    "frontend/src/pages/Workers.tsx",
+    "frontend/src/pages/YearlySalesReport.tsx",
+    "frontend/src/registerServiceWorker.ts",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

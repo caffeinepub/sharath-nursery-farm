@@ -1,0 +1,21 @@
+{
+  "name": "Sharath Nursery Farm",
+  "short_name": "SNF",
+  "description": "Complete nursery farm management system",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#2E7D32",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/assets/generated/nursery-logo.dim_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/generated/nursery-logo-large.dim_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

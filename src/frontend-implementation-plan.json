@@ -1,0 +1,799 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Sharath Nursery Farm PWA - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-16",
+      "summary": "Create dashboard screen with today's sales metrics, low stock alerts, recent dead plants, revenue chart, and quick action buttons",
+      "acceptanceCriteria": [
+        "Dashboard displays today's sales total in ₹ format",
+        "Bill count shows number of bills created today",
+        "Low stock section lists products with quantity below 5",
+        "Recent dead plants section shows last 5 dead plant entries",
+        "Monthly revenue chart displays last 30 days trend",
+        "Quick action buttons navigate to respective screens"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Dashboard.tsx",
+          "operation": "create",
+          "description": "Create dashboard page component that fetches today's sales using getAllSales and filters by today's date, displays low stock products from getLowStockPlants, shows recent dead plants from getAllDeadPlants (last 5), renders monthly revenue mini chart with last 30 days data, and includes quick action buttons for New Bill, Add Stock, and Add Expense that navigate to respective routes"
+        },
+        {
+          "path": "frontend/src/components/dashboard/TodayMetrics.tsx",
+          "operation": "create",
+          "description": "Create metrics card component displaying today's total sales amount and bills count with ₹ formatting and proper thousands separators"
+        },
+        {
+          "path": "frontend/src/components/dashboard/LowStockAlerts.tsx",
+          "operation": "create",
+          "description": "Create low stock alerts component that displays products with stockQty < 5, showing product name, type, and current quantity with red badge indicators"
+        },
+        {
+          "path": "frontend/src/components/dashboard/RecentDeadPlants.tsx",
+          "operation": "create",
+          "description": "Create recent dead plants component showing last 5 entries with product name, date, quantity, and reason"
+        },
+        {
+          "path": "frontend/src/components/dashboard/RevenueChart.tsx",
+          "operation": "create",
+          "description": "Create revenue mini chart component using recharts library displaying last 30 days sales trend with green color scheme"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /dashboard that renders Dashboard page component and set as default route"
+        }
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "summary": "Create plants inventory management screen with add/edit form, table view, search, category filter, delete, and low stock indicators",
+      "acceptanceCriteria": [
+        "Form includes all required fields with proper input types",
+        "Category dropdown contains all 7 specified plant types",
+        "Image upload accepts and displays plant images",
+        "Table displays all plants with inline edit/delete actions",
+        "Search filters list in real-time by plant name",
+        "Category filter applies instantly",
+        "Low stock items show red badge or highlight"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Plants.tsx",
+          "operation": "create",
+          "description": "Create plants inventory page that fetches all plants via getAllPlants, displays in table with search by name and category filter (Flowering/Indoor/Outdoor/Medicinal/Fruit/Vegetable/Succulent), shows add/edit form modal, handles delete via deletePlant, and highlights low stock items (stockQty < 5) with red badge"
+        },
+        {
+          "path": "frontend/src/components/plants/PlantForm.tsx",
+          "operation": "create",
+          "description": "Create plant form component with fields for name, category dropdown, purchasePrice, sellingPrice, stockQty, and image upload, calling addPlant or updatePlant on submit with validation"
+        },
+        {
+          "path": "frontend/src/components/plants/PlantTable.tsx",
+          "operation": "create",
+          "description": "Create plant table component displaying all plant fields with inline edit and delete actions, search input, category filter dropdown, and low stock visual indicators"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /plants that renders Plants page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "summary": "Create pots inventory management screen with add/edit form, size dropdown 4-22 inches, color text input, pot type dropdown, table view, search, filter, and delete",
+      "acceptanceCriteria": [
+        "Size dropdown lists integers 4 through 22 with inch labels",
+        "Colour field is free-form text input",
+        "Pot type dropdown includes all 9 specified types",
+        "All CRUD operations function via UI",
+        "Table displays size and color in compact format"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Pots.tsx",
+          "operation": "create",
+          "description": "Create pots inventory page that fetches all pots via getAllPots, displays in table with search and filter, shows add/edit form modal, handles delete via deletePot, and includes low stock indicators"
+        },
+        {
+          "path": "frontend/src/components/pots/PotForm.tsx",
+          "operation": "create",
+          "description": "Create pot form component with fields for name, size dropdown (4-22 inches), color text input, potType dropdown (Plastic/Ceramic/Clay/Cement/Metal/Fiber/Terracotta/Wooden/Other), purchasePrice, sellingPrice, stockQty, and image upload, calling addPot or updatePot on submit"
+        },
+        {
+          "path": "frontend/src/components/pots/PotTable.tsx",
+          "operation": "create",
+          "description": "Create pot table component displaying pot details including size and color in compact format with inline edit and delete actions"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /pots that renders Pots page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "summary": "Create propagation plants management screen with add/edit form, parent plant selector, propagation type dropdown, dates, status toggle, notes, and table view",
+      "acceptanceCriteria": [
+        "Propagation type dropdown includes all 8 types",
+        "Parent plant selector fetches and displays plants from inventory",
+        "Date pickers format dates as DD/MM/YYYY",
+        "Status toggle switches between Growing and Ready",
+        "Notes field allows multi-line text",
+        "Table shows propagation details including parent plant name"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PropagationPlants.tsx",
+          "operation": "create",
+          "description": "Create propagation plants page that fetches all propagation plants via getAllPropagationPlants, displays in table with filtering by status, shows add/edit form modal, and handles delete via deletePropagationPlant"
+        },
+        {
+          "path": "frontend/src/components/propagation/PropagationForm.tsx",
+          "operation": "create",
+          "description": "Create propagation form component with fields for name, propagationType dropdown (Stem Cutting/Leaf Cutting/Root Division/Grafting/Layering/Seed Germination/Tissue Culture/Other), parentPlant selector fetching from getAllPlants, actualCost, sellingPrice, stockQty, date pickers for propagation and ready dates formatted DD/MM/YYYY, status toggle (Growing/Ready), notes textarea, and image upload, calling addPropagationPlant or updatePropagationPlant on submit"
+        },
+        {
+          "path": "frontend/src/components/propagation/PropagationTable.tsx",
+          "operation": "create",
+          "description": "Create propagation table component displaying propagation details including parent plant name resolved from ID with status filter and inline actions"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /propagation that renders PropagationPlants page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-20",
+      "summary": "Create billing/sales screen with auto-incrementing bill number, customer toggle, inventory search, cart, balance calculation, discount/due buttons, and payment mode",
+      "acceptanceCriteria": [
+        "Bill number displays next sequential number (fetched from backend)",
+        "Date auto-fills with current date in DD/MM/YYYY format",
+        "Customer toggle controls visibility of name/phone fields",
+        "Inventory search returns results from all three inventory types",
+        "Selling price auto-fills from selected product",
+        "Quantity controls update cart item quantities",
+        "Cart calculates subtotal as sum of all line item totals",
+        "Balance auto-calculates as (customer pays - subtotal)",
+        "Discount and Due buttons appear only when balance > 0",
+        "Payment mode dropdown lists all 5 options"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Billing.tsx",
+          "operation": "create",
+          "description": "Create billing page that generates next bill number (#SNF-XXX format by counting sales from getAllSales + 1), displays current date in DD/MM/YYYY, shows customer toggle switch (on=show name/phone fields, off=walk-in), provides searchable inventory selector fetching from getAllPlants, getAllPots, getAllPropagationPlants, maintains cart state with line items, calculates subtotal, handles customer pays input with auto-calculated balance, conditionally shows Add as Discount and Keep as Due buttons when balance > 0, includes payment mode dropdown (Cash/UPI/Card/Bank Transfer/Mixed), and Generate Bill button that calls createSale"
+        },
+        {
+          "path": "frontend/src/components/billing/InventorySearch.tsx",
+          "operation": "create",
+          "description": "Create inventory search component that searches across all three inventory types (plants, pots, propagation) with autocomplete dropdown showing product name, type, and selling price"
+        },
+        {
+          "path": "frontend/src/components/billing/CartTable.tsx",
+          "operation": "create",
+          "description": "Create cart table component displaying selected items with quantity +/- controls, price, and line total, calculating and displaying subtotal"
+        },
+        {
+          "path": "frontend/src/components/billing/PaymentSection.tsx",
+          "operation": "create",
+          "description": "Create payment section component with customer pays input, auto-calculated balance display, conditional discount/due buttons, and payment mode selector"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /billing that renders Billing page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-21",
+      "summary": "Display three action buttons after bill generation: Print Bill, Send via WhatsApp (if customer phone exists), and Download PDF, with automatic stock deduction",
+      "acceptanceCriteria": [
+        "Print button opens browser print dialog with formatted bill",
+        "WhatsApp button visible only when customer phone number exists",
+        "WhatsApp opens with pre-filled message template",
+        "Download button saves bill as PDF with proper filename",
+        "Stock deduction confirmation appears after bill creation",
+        "Action buttons appear in modal or overlay after bill generation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/billing/BillSuccessModal.tsx",
+          "operation": "create",
+          "description": "Create bill success modal component that appears after createSale succeeds, displays three action buttons: Print Bill (triggers window.print), Send via WhatsApp (visible only if customer phone exists, opens WhatsApp web with pre-filled message), and Download PDF (generates and downloads PDF), shows stock deduction confirmation message"
+        },
+        {
+          "path": "frontend/src/pages/Billing.tsx",
+          "operation": "modify",
+          "description": "Add state to show BillSuccessModal after successful bill generation and pass bill data to modal"
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Generate bill PDF with business header, bill details, itemized table, subtotal/discount/total, saved message, payment mode, and footer",
+      "acceptanceCriteria": [
+        "PDF header includes all business details exactly as specified",
+        "Bill number and date formatted correctly",
+        "Items table shows pot details (size and color) when item is a pot",
+        "Discount row appears only when discount > 0",
+        "Saved message displays calculated discount amount with emoji",
+        "Footer message appears at bottom of PDF",
+        "PDF maintains professional formatting and readability"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/generateBillPDF.ts",
+          "operation": "create",
+          "description": "Create PDF generation utility using jspdf library that generates bill PDF with header section (Sharath Nursery Farm logo from frontend/public/assets/generated/nursery-logo.dim_192x192.png, owner name 'Dr. Sagar DN', address 'Near Prasanth School, Maddur Malavalli Main Road, KM Doddi - 571422', WhatsApp '9964893711', Instagram '@sharathnursery'), bill details (billNo, date DD/MM/YYYY, customer name/phone or 'Walk-in Customer'), itemized table (S.No, Item name with pot size & color if pot, Qty, Price, Total), subtotal, discount row (if discount > 0), grand total, saved message ('You saved ₹XX on this purchase! 🎊' if discount applied), payment mode, and footer ('Thank You! Visit Again! 🌱 Grow Green, Stay Green')"
+        },
+        {
+          "path": "frontend/src/components/billing/BillSuccessModal.tsx",
+          "operation": "modify",
+          "description": "Import and use generateBillPDF utility for Print and Download actions"
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Create dead plant module screen with product selector, quantity, reason dropdown, date, notes, photo upload, submit that deducts stock and calculates loss",
+      "acceptanceCriteria": [
+        "Product selector fetches from plants, pots, and propagation inventories",
+        "Quantity input validates against available stock",
+        "Reason dropdown includes all 8 specified reasons",
+        "Date defaults to today but is editable",
+        "Photo upload accepts image files",
+        "Submit triggers stock deduction and loss calculation",
+        "Success message confirms record saved and stock updated"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/DeadPlants.tsx",
+          "operation": "create",
+          "description": "Create dead plants page with form containing product selector (fetching from getAllPlants, getAllPots, getAllPropagationPlants), deadQuantity input with stock validation, reason dropdown (Disease/Pest, Overwatering, Underwatering, Weather/Climate, Root Rot, Transport Damage, Old Stock/Expired, Other), date picker defaulting to today in DD/MM/YYYY format, notes textarea, optional photo upload, and submit button that calculates totalLoss (deadQty × purchasePrice) and calls addDeadPlant, displays history table from getAllDeadPlants"
+        },
+        {
+          "path": "frontend/src/components/deadplants/DeadPlantForm.tsx",
+          "operation": "create",
+          "description": "Create dead plant form component with all required fields, loss calculation logic, and submission handling with success message"
+        },
+        {
+          "path": "frontend/src/components/deadplants/DeadPlantTable.tsx",
+          "operation": "create",
+          "description": "Create dead plant history table displaying all dead plant records with date, product name, quantity, loss amount, and reason"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /dead-plants that renders DeadPlants page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-24",
+      "summary": "Create expenses module screen with add form, category dropdown, history table with filters (category, date range, month), and monthly summary",
+      "acceptanceCriteria": [
+        "Category dropdown lists all 12 expense categories",
+        "Form validates all required fields before submission",
+        "History table displays all expenses with applied filters",
+        "Category filter updates table in real-time",
+        "Date range filter applies start and end date constraints",
+        "Month selector shows total expenses for that month",
+        "Monthly summary displays formatted ₹ amount"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Expenses.tsx",
+          "operation": "create",
+          "description": "Create expenses page with form containing date picker, category dropdown (Electricity Bill, Water Bill, Worker Salary, Transport/Delivery, Rent, Pesticides/Fertilizers, Equipment/Tools, Marketing/Ads, Seeds/Saplings Purchase, Maintenance/Repairs, Phone/Internet, Custom Category), description textarea, amount input, payment mode dropdown, submit calling addExpense, history table from getAllExpenses with filters (category dropdown, date range picker, month selector), and monthly summary card showing total for selected month with ₹ formatting"
+        },
+        {
+          "path": "frontend/src/components/expenses/ExpenseForm.tsx",
+          "operation": "create",
+          "description": "Create expense form component with all required fields and validation"
+        },
+        {
+          "path": "frontend/src/components/expenses/ExpenseTable.tsx",
+          "operation": "create",
+          "description": "Create expense history table with filter controls (category, date range, month) and filtered display"
+        },
+        {
+          "path": "frontend/src/components/expenses/MonthlySummary.tsx",
+          "operation": "create",
+          "description": "Create monthly summary card component calculating and displaying total expenses for selected month"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /expenses that renders Expenses page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Create worker salary sub-section with add worker form, record payment form, worker list table, and payment history view",
+      "acceptanceCriteria": [
+        "Add worker form captures all required fields",
+        "Payment form references existing workers from dropdown",
+        "Worker table displays name, phone, salary, and join date",
+        "Payment history shows date, amount, and mode for each payment",
+        "Payments link to correct worker records"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Workers.tsx",
+          "operation": "create",
+          "description": "Create workers page with add worker form (name, phone, salary, joinDate), record payment form (worker selector from getAllWorkers, date, amount, payment mode) calling addWorkerPayment, worker list table displaying all workers from getAllWorkers with name/phone/salary/joinDate, and expandable payment history view per worker showing their payments array"
+        },
+        {
+          "path": "frontend/src/components/workers/WorkerForm.tsx",
+          "operation": "create",
+          "description": "Create add worker form component calling addWorker on submit"
+        },
+        {
+          "path": "frontend/src/components/workers/PaymentForm.tsx",
+          "operation": "create",
+          "description": "Create record payment form component with worker selector and payment fields calling addWorkerPayment"
+        },
+        {
+          "path": "frontend/src/components/workers/WorkerTable.tsx",
+          "operation": "create",
+          "description": "Create worker table component with expandable rows showing payment history for each worker"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /workers that renders Workers page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "summary": "Create monthly sales report screen with revenue, expenses, dead loss, investment, net profit, margin, metrics, top products, and daily sales chart",
+      "acceptanceCriteria": [
+        "Month selector allows choosing any historical month",
+        "All monetary values display in ₹ format with proper thousands separators",
+        "Net profit calculation correctly subtracts expenses and dead loss",
+        "Profit margin shows as percentage with 2 decimal places",
+        "Top products list shows product name and quantity sold",
+        "Daily sales chart displays trend across all days in month",
+        "Chart uses green color scheme matching app theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MonthlySalesReport.tsx",
+          "operation": "create",
+          "description": "Create monthly sales report page with month selector, fetching and filtering sales from getAllSales, expenses from getAllExpenses, and dead plants from getAllDeadPlants for selected month, calculating total revenue (sum of sales totalPaid), total expenses (sum of expense amounts), dead plant loss (sum of totalLoss), total investment (expenses + inventory purchase costs + dead loss), net profit (revenue - expenses - dead loss), profit margin percentage ((net profit / revenue) × 100), metrics cards (total bills, total customers, total discounts), top selling products list (aggregated from sale items), and daily sales trend chart using recharts with green color scheme"
+        },
+        {
+          "path": "frontend/src/components/reports/MetricsCards.tsx",
+          "operation": "create",
+          "description": "Create metrics cards component displaying revenue, expenses, profit, and other key metrics with ₹ formatting"
+        },
+        {
+          "path": "frontend/src/components/reports/TopProducts.tsx",
+          "operation": "create",
+          "description": "Create top products component listing products sorted by quantity sold"
+        },
+        {
+          "path": "frontend/src/components/reports/DailySalesChart.tsx",
+          "operation": "create",
+          "description": "Create daily sales chart component using recharts displaying sales trend for selected month with green theme"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /reports/monthly that renders MonthlySalesReport page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-27",
+      "summary": "Create yearly sales report screen with month-by-month breakdown table, year totals, comparison charts, and YoY growth",
+      "acceptanceCriteria": [
+        "Year selector allows choosing historical years",
+        "Table displays 12 rows (one per month) plus total row",
+        "Each cell formats currency values correctly",
+        "Margin column shows percentages",
+        "Comparison chart visualizes revenue and profit trends",
+        "YoY growth shows percentage change from previous year",
+        "Positive growth displays in green, negative in red"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/YearlySalesReport.tsx",
+          "operation": "create",
+          "description": "Create yearly sales report page with year selector, fetching and aggregating sales, expenses, and dead plants by month for selected year, displaying month-by-month breakdown table with columns (Month, Revenue, Expenses, Dead Loss, Net Profit, Margin %), year total row summing all months, comparison chart using recharts visualizing monthly revenue and profit trends, and year-over-year growth percentage indicator comparing current year total to previous year with color coding (green for positive, red for negative)"
+        },
+        {
+          "path": "frontend/src/components/reports/MonthlyBreakdownTable.tsx",
+          "operation": "create",
+          "description": "Create monthly breakdown table component displaying 12 monthly rows plus total row with proper ₹ formatting and percentage display"
+        },
+        {
+          "path": "frontend/src/components/reports/YearComparisonChart.tsx",
+          "operation": "create",
+          "description": "Create year comparison chart component using recharts showing monthly revenue and profit trends"
+        },
+        {
+          "path": "frontend/src/components/reports/YoYGrowth.tsx",
+          "operation": "create",
+          "description": "Create YoY growth indicator component displaying percentage change with color coding"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /reports/yearly that renders YearlySalesReport page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-28",
+      "summary": "Create ROI report screen with total investment breakdown, net profit, ROI percentage, comparison with/without dead loss, monthly trend, and insight message",
+      "acceptanceCriteria": [
+        "Total investment breaks down into three components",
+        "ROI calculation displays as percentage with 2 decimals",
+        "Comparison shows two ROI values side by side",
+        "Monthly trend chart plots ROI over time",
+        "Insight message dynamically calculates earnings per ₹100",
+        "All monetary values use ₹ symbol and proper formatting"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ROIReport.tsx",
+          "operation": "create",
+          "description": "Create ROI report page fetching all sales, expenses, and dead plants, calculating total investment (all expenses + inventory purchase costs + dead plant loss), net profit (revenue - expenses - dead loss), ROI percentage ((net profit / total investment) × 100), displaying comparison card showing ROI with and without dead plant loss, monthly ROI trend line chart plotting ROI for each month using recharts, and business insight message (e.g., 'You earned ₹XX for every ₹100 invested') with dynamic calculation, all values formatted with ₹ symbol and thousands separators"
+        },
+        {
+          "path": "frontend/src/components/reports/InvestmentBreakdown.tsx",
+          "operation": "create",
+          "description": "Create investment breakdown component displaying three components (expenses, inventory purchase, dead loss) summing to total investment"
+        },
+        {
+          "path": "frontend/src/components/reports/ROIComparison.tsx",
+          "operation": "create",
+          "description": "Create ROI comparison card showing two ROI calculations side by side (with and without dead loss)"
+        },
+        {
+          "path": "frontend/src/components/reports/MonthlyROIChart.tsx",
+          "operation": "create",
+          "description": "Create monthly ROI trend chart component using recharts plotting ROI percentages over time"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /reports/roi that renders ROIReport page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-29",
+      "summary": "Create CAGR report screen with Revenue and Profit CAGR calculations, YoY comparison table, growth trend chart, and dead loss impact",
+      "acceptanceCriteria": [
+        "CAGR values display as percentages",
+        "Revenue and Profit CAGR shown separately",
+        "Year range selector determines calculation period",
+        "YoY table shows annual values and growth rates",
+        "Growth trend visualizes CAGR over time",
+        "Impact comparison shows CAGR difference with/without dead losses"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CAGRReport.tsx",
+          "operation": "create",
+          "description": "Create CAGR report page with year range selector, fetching multi-year sales, expenses, and dead plants data, calculating Revenue CAGR using formula ((End Value / Start Value)^(1/years) - 1), calculating Profit CAGR similarly, displaying both as percentages, year-over-year comparison table showing annual revenue/profit and growth rates, growth trend line chart using recharts, and dead plant loss impact comparison showing CAGR difference with and without dead losses included in calculations"
+        },
+        {
+          "path": "frontend/src/components/reports/CAGRMetrics.tsx",
+          "operation": "create",
+          "description": "Create CAGR metrics component displaying Revenue CAGR and Profit CAGR as percentage values"
+        },
+        {
+          "path": "frontend/src/components/reports/YoYComparisonTable.tsx",
+          "operation": "create",
+          "description": "Create YoY comparison table showing annual values and growth rates"
+        },
+        {
+          "path": "frontend/src/components/reports/CAGRTrendChart.tsx",
+          "operation": "create",
+          "description": "Create CAGR trend chart using recharts visualizing growth over time"
+        },
+        {
+          "path": "frontend/src/components/reports/DeadLossImpact.tsx",
+          "operation": "create",
+          "description": "Create dead loss impact component comparing CAGR with and without dead plant losses"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /reports/cagr that renders CAGRReport page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-30",
+      "summary": "Create dead plant loss report with total count/loss, loss by reason pie chart, loss by category bar chart, monthly trend, death rate table, smart insights, and tips",
+      "acceptanceCriteria": [
+        "Total count and loss display prominently at top",
+        "Pie chart segments by reason with percentages",
+        "Bar chart shows loss amounts per category",
+        "Monthly trend plots deaths over time",
+        "Death rate table lists products with percentages",
+        "High death rate alerts appear in red warning cards",
+        "Tips section provides actionable recommendations",
+        "All charts use consistent color scheme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/DeadPlantReport.tsx",
+          "operation": "create",
+          "description": "Create dead plant loss report page fetching all dead plants from getAllDeadPlants, calculating total dead count (sum of deadQuantity), total loss amount (sum of totalLoss), aggregating loss by reason for pie chart using recharts, aggregating loss by product category for bar chart, monthly death trend line chart plotting dead counts per month, death rate percentage table per product calculating (dead count / total stock × 100) from inventory data, smart insights section showing high death rate alerts in red warning cards for products above threshold, and tips section with actionable recommendations based on death patterns, all charts using consistent green-brown color scheme"
+        },
+        {
+          "path": "frontend/src/components/reports/DeadPlantMetrics.tsx",
+          "operation": "create",
+          "description": "Create dead plant metrics component displaying total count and total loss prominently"
+        },
+        {
+          "path": "frontend/src/components/reports/LossByReasonChart.tsx",
+          "operation": "create",
+          "description": "Create pie chart component using recharts showing loss distribution by reason with percentage labels"
+        },
+        {
+          "path": "frontend/src/components/reports/LossByCategoryChart.tsx",
+          "operation": "create",
+          "description": "Create bar chart component using recharts showing loss amounts per product category"
+        },
+        {
+          "path": "frontend/src/components/reports/MonthlyDeathTrend.tsx",
+          "operation": "create",
+          "description": "Create monthly death trend chart using recharts plotting dead counts over time"
+        },
+        {
+          "path": "frontend/src/components/reports/DeathRateTable.tsx",
+          "operation": "create",
+          "description": "Create death rate table component listing products with calculated death rate percentages"
+        },
+        {
+          "path": "frontend/src/components/reports/SmartInsights.tsx",
+          "operation": "create",
+          "description": "Create smart insights component displaying high death rate alerts in red warning cards"
+        },
+        {
+          "path": "frontend/src/components/reports/DeadPlantTips.tsx",
+          "operation": "create",
+          "description": "Create tips section component providing recommendations based on death patterns"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /reports/dead-plants that renders DeadPlantReport page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-31",
+      "summary": "Create customers screen with list table (name, phone, purchases, spent, discount), search, and detailed purchase history view",
+      "acceptanceCriteria": [
+        "Table displays all customers with aggregated metrics",
+        "Search filters list by name or phone in real-time",
+        "Clicking customer row opens detail view",
+        "Detail view shows chronological purchase history",
+        "Each purchase links to original bill",
+        "Walk-in customers do not appear in this list"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Customers.tsx",
+          "operation": "create",
+          "description": "Create customers page fetching all customers from getAllCustomers, displaying table with columns (name, phone, totalPurchases count, totalSpent ₹, totalDiscount ₹), search input filtering by name or phone in real-time, clicking row opens detailed view modal showing customer's complete purchase history from getAllSales filtered by customer phone, chronologically sorted with bill numbers and dates, excluding walk-in customers (isWalkIn=true)"
+        },
+        {
+          "path": "frontend/src/components/customers/CustomerTable.tsx",
+          "operation": "create",
+          "description": "Create customer table component with search functionality and row click handlers"
+        },
+        {
+          "path": "frontend/src/components/customers/CustomerDetail.tsx",
+          "operation": "create",
+          "description": "Create customer detail modal component displaying purchase history with bill links"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /customers that renders Customers page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-32",
+      "summary": "Create settings screen with business info editor, category managers, data backup, and print settings sections",
+      "acceptanceCriteria": [
+        "Business info form pre-fills with current values",
+        "Save button updates backend with new business details",
+        "Category managers allow CRUD operations",
+        "Export button triggers data download as JSON file",
+        "Print settings allow customizing invoice layout",
+        "All changes save successfully with confirmation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Settings.tsx",
+          "operation": "create",
+          "description": "Create settings page with sections for business info editor (app name 'Sharath Nursery Farm', owner name, full address, WhatsApp number, Instagram handle, tagline - all editable fields), expense categories manager (add/edit/delete custom categories), inventory categories manager (add/edit plant categories), data backup section with export button (downloads all data from getAllSales, getAllExpenses, getAllDeadPlants, getAllCustomers, getAllWorkers as JSON file), and print settings (configure invoice template preferences), all changes saving with confirmation messages"
+        },
+        {
+          "path": "frontend/src/components/settings/BusinessInfoForm.tsx",
+          "operation": "create",
+          "description": "Create business info form component with editable fields and save functionality"
+        },
+        {
+          "path": "frontend/src/components/settings/CategoryManager.tsx",
+          "operation": "create",
+          "description": "Create category manager component for expense and inventory categories with CRUD operations"
+        },
+        {
+          "path": "frontend/src/components/settings/DataBackup.tsx",
+          "operation": "create",
+          "description": "Create data backup component with export button fetching all data and downloading as JSON"
+        },
+        {
+          "path": "frontend/src/components/settings/PrintSettings.tsx",
+          "operation": "create",
+          "description": "Create print settings component for invoice template customization"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /settings that renders Settings page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-33",
+      "summary": "Implement responsive layout ensuring mobile-first design with collapsible navigation, touch-friendly controls, and optimized tables for all screen sizes",
+      "acceptanceCriteria": [
+        "All screens render correctly at 320px, 768px, and 1024px+ widths",
+        "Navigation collapses to hamburger menu on mobile",
+        "Forms stack vertically on mobile, side-by-side on desktop",
+        "Tables scroll horizontally or reformat on small screens",
+        "Buttons and inputs meet minimum touch target size",
+        "Charts remain readable at all screen sizes"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/AppLayout.tsx",
+          "operation": "create",
+          "description": "Create app layout component with responsive sidebar navigation that collapses to hamburger menu on mobile (< 768px), using Tailwind responsive classes (sm:, md:, lg:) for breakpoints at 320px, 768px, and 1024px, ensuring touch-friendly button sizes (min-h-11 min-w-11 for 44px tap targets), and wrapping all page content"
+        },
+        {
+          "path": "frontend/src/components/layout/Sidebar.tsx",
+          "operation": "create",
+          "description": "Create sidebar navigation component with collapsible behavior on mobile, navigation links to all routes (dashboard, plants, pots, propagation, billing, dead plants, expenses, workers, customers, reports, settings), using responsive Tailwind classes"
+        },
+        {
+          "path": "frontend/src/components/layout/MobileNav.tsx",
+          "operation": "create",
+          "description": "Create mobile navigation component with hamburger menu button and slide-out drawer for small screens"
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add responsive utility classes and ensure form elements stack vertically on mobile using Tailwind responsive modifiers, tables use overflow-x-auto on mobile, and all interactive elements meet 44px minimum touch target size"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with AppLayout component to apply responsive layout structure"
+        }
+      ]
+    },
+    {
+      "id": "REQ-34",
+      "summary": "Create manifest.json for PWA with app name, theme colors, icons, and standalone display mode",
+      "acceptanceCriteria": [
+        "manifest.json includes all required PWA fields",
+        "Theme color matches app primary green #2E7D32",
+        "Icons defined for common sizes",
+        "Start URL points to root",
+        "Display mode set to standalone"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/manifest.json",
+          "operation": "create",
+          "description": "Create PWA manifest.json with name 'Sharath Nursery Farm', short_name 'SNF', description 'Complete nursery farm management system', start_url '/', display 'standalone', theme_color '#2E7D32' (green), background_color '#ffffff', icons array referencing frontend/public/assets/generated/nursery-logo.dim_192x192.png and frontend/public/assets/generated/nursery-logo-large.dim_512x512.png with sizes 192x192 and 512x512"
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Add manifest link tag <link rel='manifest' href='/manifest.json'> and theme color meta tag <meta name='theme-color' content='#2E7D32'> in head section"
+        }
+      ]
+    },
+    {
+      "id": "REQ-35",
+      "summary": "Implement service worker for PWA offline caching of app shell, static assets, API responses, with runtime caching and cache-first strategy",
+      "acceptanceCriteria": [
+        "Service worker registers successfully on page load",
+        "App shell files cached during installation",
+        "API responses cached with expiration strategy",
+        "Offline fallback page displays when no connection",
+        "Previously loaded data viewable without connection",
+        "Cache invalidation works on app updates"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/service-worker.js",
+          "operation": "create",
+          "description": "Create service worker implementing PWA offline caching with install event caching app shell (HTML, CSS, JS bundle), static assets, and generated images from frontend/public/assets/generated/, fetch event with cache-first strategy for static resources (CSS, JS, images) and network-first with cache fallback for API calls to backend, activate event cleaning up old caches, and offline fallback page when network unavailable"
+        },
+        {
+          "path": "frontend/src/registerServiceWorker.ts",
+          "operation": "create",
+          "description": "Create service worker registration utility checking for 'serviceWorker' in navigator, registering /service-worker.js on load, handling successful registration and updates, and providing console logs for debugging"
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Import and call registerServiceWorker function after React app mounts to enable PWA offline capabilities"
+        }
+      ]
+    },
+    {
+      "id": "REQ-36",
+      "summary": "Implement PWA install prompt detecting installability, showing custom banner, handling beforeinstallprompt, and confirming installation",
+      "acceptanceCriteria": [
+        "Install prompt appears on supported browsers",
+        "Custom UI for install prompt matches app theme",
+        "User can dismiss prompt without installing",
+        "Successful installation shows confirmation message",
+        "Prompt respects browser-specific requirements"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/pwa/InstallPrompt.tsx",
+          "operation": "create",
+          "description": "Create install prompt component listening for beforeinstallprompt event, storing deferred prompt, displaying custom install banner with message 'Install Sharath Nursery Farm app' and green-themed button matching app colors (#2E7D32), handling prompt() on button click, listening for appinstalled event to show confirmation message, and allowing user to dismiss prompt"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Include InstallPrompt component in app root to display PWA install banner when installable"
+        }
+      ]
+    },
+    {
+      "id": "REQ-37",
+      "summary": "Apply visual theme with primary green #2E7D32, secondary brown #5D4037, accent yellow #FFC107 using Tailwind custom colors with consistent typography and spacing",
+      "acceptanceCriteria": [
+        "Tailwind config extends with custom nursery color palette",
+        "Primary green used for all main buttons and navigation",
+        "Brown used for secondary actions and borders",
+        "Yellow used sparingly for warnings and highlights",
+        "Typography remains readable with proper contrast ratios",
+        "Consistent spacing using Tailwind spacing scale",
+        "Components maintain visual hierarchy"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with custom color palette: primary '#2E7D32' (green) for main actions and headers, secondary '#5D4037' (brown) for secondary elements, accent '#FFC107' (yellow) for highlights and alerts, ensuring proper contrast ratios and maintaining default Tailwind spacing scale"
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global CSS custom properties for nursery theme colors (--color-primary: #2E7D32, --color-secondary: #5D4037, --color-accent: #FFC107), apply base typography styles with readable font sizes and line heights, set consistent button styles using primary green background, and ensure proper spacing throughout using Tailwind utilities"
+        }
+      ]
+    }
+  ]
+}

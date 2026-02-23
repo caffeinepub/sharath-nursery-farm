@@ -1,0 +1,467 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-dashboard-screen-showing-today-s-total-sales-amount-today-s-total-bills-count-low-stock-alerts-items-with-stockqty-5-recent-dead-plant-alerts-monthly-revenue-mini-chart-and-quick-action-buttons-new-bill-add-stock-add-expense-using-react-with-state-from-react-query",
+      "featureTitle": "Create dashboard screen showing today's total sales amount, today's total bills count, low stock alerts (items with stockQty < 5), recent dead plant alerts, monthly revenue mini chart, and quick action buttons (New Bill, Add Stock, Add Expense) using React with state from React Query",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/dashboard/RevenueChart.tsx",
+        "frontend/src/pages/Dashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-plants-inventory-management-screen-with-form-to-add-edit-plants-name-category-dropdown-purchase-price-selling-price-stock-quantity-image-upload-table-list-view-of-all-plants-with-search-by-name-and-filter-by-category-delete-functionality-and-visual-low-stock-indicator-red-badge-for-items-with-stockqty-5",
+      "featureTitle": "Create plants inventory management screen with form to add/edit plants (name, category dropdown, purchase price, selling price, stock quantity, image upload), table/list view of all plants with search by name and filter by category, delete functionality, and visual low stock indicator (red badge) for items with stockQty < 5",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/plants/PlantForm.tsx",
+        "frontend/src/components/plants/PlantTable.tsx",
+        "frontend/src/pages/Plants.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-17"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-pots-inventory-management-screen-with-form-to-add-edit-pots-name-size-dropdown-4-22-inches-colour-free-text-input-pot-type-dropdown-purchase-price-selling-price-stock-quantity-image-upload-table-view-with-search-and-filter-delete-functionality-and-low-stock-warnings",
+      "featureTitle": "Create pots inventory management screen with form to add/edit pots (name, size dropdown 4-22 inches, colour free text input, pot type dropdown, purchase price, selling price, stock quantity, image upload), table view with search and filter, delete functionality, and low stock warnings",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/pots/PotForm.tsx",
+        "frontend/src/components/pots/PotTable.tsx",
+        "frontend/src/pages/Pots.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-18"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-propagation-plants-management-screen-with-form-to-add-edit-propagation-plants-name-propagation-type-dropdown-parent-plant-selector-from-plants-inventory-actual-cost-selling-price-stock-quantity-propagation-date-picker-ready-to-sell-date-picker-status-toggle-growing-ready-notes-textarea-image-upload-table-view-and-filtering-by-status",
+      "featureTitle": "Create propagation plants management screen with form to add/edit propagation plants (name, propagation type dropdown, parent plant selector from plants inventory, actual cost, selling price, stock quantity, propagation date picker, ready to sell date picker, status toggle Growing/Ready, notes textarea, image upload), table view, and filtering by status",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/propagation/PropagationForm.tsx",
+        "frontend/src/components/propagation/PropagationTable.tsx",
+        "frontend/src/pages/PropagationPlants.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-19"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-billing-sales-screen-with-auto-incrementing-bill-number-display-auto-filled-current-date-customer-details-toggle-switch-add-customer-details-when-on-show-name-and-phone-fields-when-off-save-as-walk-in-customer-searchable-inventory-selector-searches-across-plants-pots-propagation-quantity-buttons-cart-with-item-list-showing-name-qty-price-total-subtotal-display-customer-pays-input-field-with-auto-calculated-balance-conditional-discount-due-buttons-shown-when-balance-0-payment-mode-selector-cash-upi-card-bank-transfer-mixed-and-generate-bill-button",
+      "featureTitle": "Create billing/sales screen with auto-incrementing bill number display, auto-filled current date, customer details toggle switch ('Add Customer Details?' - when ON show name and phone fields, when OFF save as 'Walk-in Customer'), searchable inventory selector (searches across plants, pots, propagation), quantity +/- buttons, cart with item list showing name/qty/price/total, subtotal display, customer pays input field with auto-calculated balance, conditional discount/due buttons (shown when balance > 0), payment mode selector (Cash/UPI/Card/Bank Transfer/Mixed), and Generate Bill button",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/billing/CartTable.tsx",
+        "frontend/src/components/billing/InventorySearch.tsx",
+        "frontend/src/components/billing/PaymentSection.tsx",
+        "frontend/src/pages/Billing.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-20"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-after-bill-generation-display-three-action-buttons-print-bill-triggers-browser-print-dialog-send-via-whatsapp-opens-whatsapp-web-with-pre-filled-message-and-pdf-link-shown-only-if-customer-phone-exists-and-download-pdf-downloads-bill-as-pdf-file-the-bill-automatically-deducts-stock-quantities-from-inventory-upon-successful-generation",
+      "featureTitle": "After bill generation, display three action buttons: Print Bill (triggers browser print dialog), Send via WhatsApp (opens WhatsApp web with pre-filled message and PDF link, shown only if customer phone exists), and Download PDF (downloads bill as PDF file). The bill automatically deducts stock quantities from inventory upon successful generation.",
+      "files": [
+        "frontend/src/components/billing/BillSuccessModal.tsx",
+        "frontend/src/pages/Billing.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-generate-bill-pdf-with-header-section-sharath-nursery-farm-logo-icon-owner-name-dr-sagar-dn-full-address-near-prasanth-school-maddur-malavalli-main-road-km-doddi-571422-whatsapp-9964893711-instagram-sharathnursery-bill-details-bill-number-date-customer-name-phone-or-walk-in-customer-itemized-table-serial-no-item-name-with-pot-size-color-if-pot-quantity-price-total-subtotal-discount-if-any-grand-total-saved-message-you-saved-xx-on-this-purchase-if-discount-applied-payment-mode-and-footer-thank-you-visit-again-grow-green-stay-green",
+      "featureTitle": "Generate bill PDF with header section (Sharath Nursery Farm logo/icon, owner name 'Dr. Sagar DN', full address 'Near Prasanth School, Maddur Malavalli Main Road, KM Doddi - 571422', WhatsApp '9964893711', Instagram '@sharathnursery'), bill details (bill number, date, customer name/phone or 'Walk-in Customer'), itemized table (serial no, item name with pot size & color if pot, quantity, price, total), subtotal, discount (if any), grand total, saved message ('You saved ₹XX on this purchase! 🎊' if discount applied), payment mode, and footer ('Thank You! Visit Again! 🌱 Grow Green, Stay Green')",
+      "files": [
+        "frontend/src/components/billing/BillSuccessModal.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-dead-plant-module-screen-with-product-selector-dropdown-loading-from-all-inventory-types-dead-damaged-quantity-input-reason-dropdown-disease-pest-overwatering-underwatering-weather-climate-root-rot-transport-damage-old-stock-expired-other-date-picker-notes-textarea-optional-photo-upload-and-submit-button-that-deducts-stock-calculates-loss-deadqty-purchaseprice-and-saves-to-dead-plant-records",
+      "featureTitle": "Create dead plant module screen with product selector (dropdown loading from all inventory types), dead/damaged quantity input, reason dropdown (Disease/Pest, Overwatering, Underwatering, Weather/Climate, Root Rot, Transport Damage, Old Stock/Expired, Other), date picker, notes textarea, optional photo upload, and submit button that deducts stock, calculates loss (deadQty × purchasePrice), and saves to dead plant records",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/deadplants/DeadPlantForm.tsx",
+        "frontend/src/components/deadplants/DeadPlantTable.tsx",
+        "frontend/src/pages/DeadPlants.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-expenses-module-screen-with-form-to-add-expense-date-picker-category-dropdown-with-all-12-categories-including-custom-category-description-textarea-amount-input-payment-mode-dropdown-expenses-history-table-with-filters-category-dropdown-date-range-picker-month-selector-and-monthly-expense-summary-card-showing-total-for-selected-month",
+      "featureTitle": "Create expenses module screen with form to add expense (date picker, category dropdown with all 12 categories including Custom Category, description textarea, amount input, payment mode dropdown), expenses history table with filters (category dropdown, date range picker, month selector), and monthly expense summary card showing total for selected month",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/expenses/ExpenseForm.tsx",
+        "frontend/src/components/expenses/ExpenseTable.tsx",
+        "frontend/src/components/expenses/MonthlySummary.tsx",
+        "frontend/src/pages/Expenses.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-24"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-worker-salary-sub-section-within-expenses-module-with-form-to-add-worker-name-phone-monthly-salary-join-date-record-salary-payment-form-worker-selector-date-amount-payment-mode-worker-list-table-showing-all-workers-with-payment-history-and-payment-history-view-per-worker",
+      "featureTitle": "Create worker salary sub-section within expenses module with form to add worker (name, phone, monthly salary, join date), record salary payment form (worker selector, date, amount, payment mode), worker list table showing all workers with payment history, and payment history view per worker",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/workers/PaymentForm.tsx",
+        "frontend/src/components/workers/WorkerForm.tsx",
+        "frontend/src/components/workers/WorkerTable.tsx",
+        "frontend/src/pages/Workers.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-25"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-monthly-sales-report-screen-displaying-total-revenue-total-expenses-dead-plant-loss-total-investment-net-profit-revenue-expenses-dead-plant-loss-profit-margin-percentage-total-bills-count-total-customers-total-discounts-given-top-selling-products-list-and-bar-line-chart-showing-daily-sales-trend-for-the-selected-month",
+      "featureTitle": "Create monthly sales report screen displaying total revenue, total expenses, dead plant loss, total investment, net profit (Revenue - Expenses - Dead Plant Loss), profit margin percentage, total bills count, total customers, total discounts given, top selling products list, and bar/line chart showing daily sales trend for the selected month",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/reports/DailySalesChart.tsx",
+        "frontend/src/components/reports/MetricsCards.tsx",
+        "frontend/src/components/reports/TopProducts.tsx",
+        "frontend/src/pages/MonthlySalesReport.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-26"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-yearly-sales-report-screen-with-month-by-month-breakdown-table-showing-columns-for-each-month-revenue-expenses-dead-loss-net-profit-margin-year-total-row-at-bottom-comparison-charts-bar-chart-comparing-monthly-revenue-and-profit-and-year-over-year-growth-percentage-indicator",
+      "featureTitle": "Create yearly sales report screen with month-by-month breakdown table showing columns for each month (Revenue, Expenses, Dead Loss, Net Profit, Margin), year total row at bottom, comparison charts (bar chart comparing monthly revenue and profit), and year-over-year growth percentage indicator",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/reports/MonthlyBreakdownTable.tsx",
+        "frontend/src/components/reports/YearComparisonChart.tsx",
+        "frontend/src/components/reports/YoYGrowth.tsx",
+        "frontend/src/pages/YearlySalesReport.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-27"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-roi-return-on-investment-report-screen-displaying-total-investment-calculation-all-expenses-inventory-purchase-cost-dead-plant-loss-net-profit-roi-percentage-using-formula-net-profit-total-investment-100-roi-comparison-card-showing-roi-with-and-without-dead-plant-loss-monthly-roi-trend-line-chart-and-business-insight-message-e-g-you-earned-xx-for-every-100-invested",
+      "featureTitle": "Create ROI (Return on Investment) report screen displaying total investment calculation (All Expenses + Inventory Purchase Cost + Dead Plant Loss), net profit, ROI percentage using formula (Net Profit / Total Investment) × 100, ROI comparison card showing ROI with and without dead plant loss, monthly ROI trend line chart, and business insight message (e.g., 'You earned ₹XX for every ₹100 invested')",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/reports/InvestmentBreakdown.tsx",
+        "frontend/src/components/reports/MonthlyROIChart.tsx",
+        "frontend/src/components/reports/ROIComparison.tsx",
+        "frontend/src/pages/ROIReport.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-28"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-cagr-compound-annual-growth-rate-report-screen-displaying-revenue-cagr-and-profit-cagr-calculations-using-formula-end-value-start-value-1-years-1-year-over-year-comparison-table-growth-trend-line-chart-and-dead-plant-loss-impact-comparison-showing-cagr-with-and-without-dead-losses",
+      "featureTitle": "Create CAGR (Compound Annual Growth Rate) report screen displaying Revenue CAGR and Profit CAGR calculations using formula (End Value / Start Value)^(1/years) - 1, year-over-year comparison table, growth trend line chart, and dead plant loss impact comparison showing CAGR with and without dead losses",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/reports/CAGRMetrics.tsx",
+        "frontend/src/components/reports/CAGRTrendChart.tsx",
+        "frontend/src/components/reports/DeadLossImpact.tsx",
+        "frontend/src/components/reports/YoYComparisonTable.tsx",
+        "frontend/src/pages/CAGRReport.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-29"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-dead-plant-loss-report-screen-displaying-total-plants-dead-count-total-loss-amount-in-loss-by-reason-pie-chart-loss-by-plant-category-bar-chart-monthly-death-trend-line-chart-death-rate-percentage-table-per-product-calculated-as-dead-count-total-stock-100-smart-insights-section-showing-high-death-rate-alerts-for-products-above-threshold-and-tips-section-based-on-death-patterns",
+      "featureTitle": "Create dead plant loss report screen displaying total plants dead count, total loss amount in ₹, loss by reason pie chart, loss by plant category bar chart, monthly death trend line chart, death rate percentage table per product (calculated as dead count / total stock × 100), smart insights section showing high death rate alerts for products above threshold, and tips section based on death patterns",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/reports/DeadPlantMetrics.tsx",
+        "frontend/src/components/reports/DeadPlantTips.tsx",
+        "frontend/src/components/reports/DeathRateTable.tsx",
+        "frontend/src/components/reports/LossByCategoryChart.tsx",
+        "frontend/src/components/reports/LossByReasonChart.tsx",
+        "frontend/src/components/reports/MonthlyDeathTrend.tsx",
+        "frontend/src/components/reports/SmartInsights.tsx",
+        "frontend/src/pages/DeadPlantReport.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-30"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-customers-screen-displaying-customer-list-table-with-columns-name-phone-total-purchases-count-total-spent-total-discount-search-functionality-by-name-or-phone-and-detailed-view-showing-individual-customer-s-complete-purchase-history-with-bill-numbers-and-dates-only-for-customers-whose-details-were-added-during-billing",
+      "featureTitle": "Create customers screen displaying customer list table with columns (name, phone, total purchases count, total spent ₹, total discount ₹), search functionality by name or phone, and detailed view showing individual customer's complete purchase history with bill numbers and dates (only for customers whose details were added during billing)",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/customers/CustomerDetail.tsx",
+        "frontend/src/components/customers/CustomerTable.tsx",
+        "frontend/src/pages/Customers.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-31"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-settings-screen-with-sections-for-business-info-editor-app-name-owner-name-full-address-whatsapp-number-instagram-handle-tagline-all-editable-fields-expense-categories-manager-add-edit-delete-custom-categories-inventory-categories-manager-add-edit-plant-categories-data-backup-section-with-export-button-downloads-all-data-as-json-and-print-settings-configure-invoice-template-preferences",
+      "featureTitle": "Create settings screen with sections for: business info editor (app name, owner name, full address, WhatsApp number, Instagram handle, tagline - all editable fields), expense categories manager (add/edit/delete custom categories), inventory categories manager (add/edit plant categories), data backup section with export button (downloads all data as JSON), and print settings (configure invoice template preferences)",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/settings/BusinessInfoForm.tsx",
+        "frontend/src/pages/Settings.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-32"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-responsive-layout-for-all-screens-ensuring-mobile-first-design-that-works-on-phones-320px-tablets-768px-and-desktops-1024px-with-collapsible-sidebar-navigation-on-mobile-touch-friendly-buttons-and-inputs-min-44px-tap-targets-and-optimized-table-views-that-stack-or-scroll-horizontally-on-small-screens",
+      "featureTitle": "Implement responsive layout for all screens ensuring mobile-first design that works on phones (320px+), tablets (768px+), and desktops (1024px+), with collapsible sidebar navigation on mobile, touch-friendly buttons and inputs (min 44px tap targets), and optimized table views that stack or scroll horizontally on small screens",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/AppLayout.tsx",
+        "frontend/src/components/layout/MobileNav.tsx",
+        "frontend/src/components/layout/Sidebar.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-33"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-manifest-json-file-for-pwa-configuration-with-app-name-sharath-nursery-farm-short-name-snf-description-start-url-display-mode-standalone-theme-color-2e7d32-green-background-color-and-icons-array-with-multiple-sizes-192x192-512x512-for-app-installation",
+      "featureTitle": "Create manifest.json file for PWA configuration with app name 'Sharath Nursery Farm', short_name 'SNF', description, start_url, display mode standalone, theme_color #2E7D32 (green), background_color, and icons array with multiple sizes (192x192, 512x512) for app installation",
+      "files": [
+        "frontend/index.html",
+        "frontend/public/manifest.json"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-34"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-service-worker-for-pwa-offline-caching-strategy-that-caches-app-shell-html-css-js-static-assets-and-api-responses-with-runtime-caching-for-images-and-api-calls-and-cache-first-strategy-for-static-resources-enabling-viewing-of-cached-data-when-offline",
+      "featureTitle": "Implement service worker for PWA offline caching strategy that caches app shell (HTML, CSS, JS), static assets, and API responses, with runtime caching for images and API calls, and cache-first strategy for static resources, enabling viewing of cached data when offline",
+      "files": [
+        "frontend/public/service-worker.js",
+        "frontend/src/main.tsx",
+        "frontend/src/registerServiceWorker.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-35"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-pwa-install-prompt-that-detects-when-app-is-installable-displays-custom-install-banner-or-button-with-message-install-sharath-nursery-farm-app-handles-beforeinstallprompt-event-and-shows-confirmation-after-successful-installation",
+      "featureTitle": "Implement PWA install prompt that detects when app is installable, displays custom install banner or button with message 'Install Sharath Nursery Farm app', handles beforeinstallprompt event, and shows confirmation after successful installation",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/pwa/InstallPrompt.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-36"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-visual-theme-throughout-the-application-with-primary-color-2e7d32-green-for-headers-buttons-and-accents-secondary-color-5d4037-brown-for-secondary-elements-accent-color-ffc107-yellow-for-highlights-and-alerts-using-tailwind-css-custom-color-configuration-and-ensure-consistent-typography-spacing-and-component-styling-across-all-screens",
+      "featureTitle": "Apply visual theme throughout the application with primary color #2E7D32 (green) for headers, buttons, and accents, secondary color #5D4037 (brown) for secondary elements, accent color #FFC107 (yellow) for highlights and alerts, using Tailwind CSS custom color configuration, and ensure consistent typography, spacing, and component styling across all screens",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-37"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
